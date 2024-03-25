@@ -292,15 +292,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfb1156c2fa7194084d2016c1005fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
+  enemyPrefabs: []
   _spawners:
   - {fileID: 1228460801}
   - {fileID: 1395931230}
   - {fileID: 85421872}
   - {fileID: 791885757}
   wave: 30
-  totalZombies: 0
+  totalEnemies: 0
   playerCount: 4
 --- !u!4 &110007347
 Transform:

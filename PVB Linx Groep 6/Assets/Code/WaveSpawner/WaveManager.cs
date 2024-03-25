@@ -8,7 +8,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>(0);
     public int wave;
-    public int totalZombies;
+    public int totalEnemies;
 
     
     //MOCKUP
@@ -32,14 +32,14 @@ public class WaveManager : MonoBehaviour
         {
             spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
-        totalZombies = CalculateEnemyCount() * 4;
+        totalEnemies = CalculateEnemyCount() * 4;
     }
 
     private int CalculateEnemyCount()
     {
-        var baseMultiplier = 1.3f;
+        float baseMultiplier = 1.3f;
        
-        var zombieCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
+        int zombieCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
         return zombieCount;
     }
 
