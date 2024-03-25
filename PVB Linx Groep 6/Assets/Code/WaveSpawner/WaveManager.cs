@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>(0);
     public int wave;
     public int totalZombies;
@@ -29,7 +30,7 @@ public class WaveManager : MonoBehaviour
         wave++;
         foreach (var spawner in _spawners)
         {
-            spawner.SpawnEnemies(CalculateEnemyCount());
+            spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
         totalZombies = CalculateEnemyCount() * 4;
     }

@@ -152,8 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ba037afd3b4bb4981d794db35dbc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
   zone: {fileID: 1695313304}
   enemyHolder: {fileID: 892676401}
 --- !u!4 &85421873
@@ -294,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfb1156c2fa7194084d2016c1005fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
   _spawners:
   - {fileID: 1228460801}
   - {fileID: 1395931230}
@@ -561,8 +561,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ba037afd3b4bb4981d794db35dbc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
   zone: {fileID: 1124925073}
   enemyHolder: {fileID: 480818374}
 --- !u!4 &791885758
@@ -747,8 +745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ba037afd3b4bb4981d794db35dbc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
   zone: {fileID: 1331588966}
   enemyHolder: {fileID: 498428073}
 --- !u!4 &1228460802
@@ -902,8 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8ba037afd3b4bb4981d794db35dbc1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 5825689483747699548, guid: 968ed5889ee019b48bdac2a73d7abb8d, type: 3}
   zone: {fileID: 2003346646}
   enemyHolder: {fileID: 649246903}
 --- !u!4 &1395931231

@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
+   
     [SerializeField] private Transform zone;
     [SerializeField] private Transform enemyHolder;
     private Vector2 _zoneSize;
@@ -24,14 +24,14 @@ public class EnemySpawner : MonoBehaviour
         
     }
 
-    public void SpawnEnemies(int count)
+    public void SpawnEnemies(int count, List<GameObject> enemyTypeList)
     {
         for (int i = 0; i < count; i++)
         {
-            var enemyType = Random.Range(0, enemyPrefabs.Count);
+            var enemyType = Random.Range(0, enemyTypeList.Count);
             var enemySpawnPositionX = Random.Range(0, _zoneSize.x);
             var enemySpawnPositionY = Random.Range(0, _zoneSize.y);
-            var enemy =Instantiate(enemyPrefabs[enemyType], enemyHolder);
+            var enemy = Instantiate(enemyTypeList[enemyType], enemyHolder);
             enemy.transform.localPosition = new Vector3(enemySpawnPositionX, 1, enemySpawnPositionY);
         }
     }
