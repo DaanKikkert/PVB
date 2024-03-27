@@ -1,5 +1,8 @@
+using System.Collections;
+using Code.Scripts.Health;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 namespace Code.Scripts.Enemy
 {
@@ -25,6 +28,7 @@ namespace Code.Scripts.Enemy
 
         private Transform _currentTarget;
         private bool _foundPlayer;
+        private bool _wait;
         
         // Start is called before the first frame update
         private void Start()
@@ -86,12 +90,33 @@ namespace Code.Scripts.Enemy
                 enemyAgent.SetDestination(_currentTarget.position);
 
             if (Vector3.Distance(transform.position, _currentTarget.position) <= attackRange)
+            {
                 getStates = EnemyStates.Attack;
+                AttackTarget();
+            }
+                
         }
 
         private void AttackTarget()
         {
-            
+            StartCoroutine(Delay(4, 15));
+
+            if (_currentTarget == null)
+            {
+                getStates = EnemyStates.Target;
+                GetTarget(mainStructure);
+            }
+        }
+
+        private IEnumerator Delay(int delay, int damage)
+        {
+            if (!_wait)
+            {
+                _wait = true;
+                _currentTarget.GetComponent<DepleteHealth>().getHealth.health -= damage;
+                yield return new WaitForSeconds(delay);
+                _wait = false;
+            }
         }
 
         private void OnTriggerEnter(Collider other)
