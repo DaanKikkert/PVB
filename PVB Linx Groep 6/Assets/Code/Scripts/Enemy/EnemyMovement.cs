@@ -27,8 +27,8 @@ namespace Code.Scripts.Enemy
         [SerializeField] [Range(0,5)] private float attackRange;
 
         private Transform _currentTarget;
-        private bool _foundPlayer;
-        private bool _wait;
+        private bool _hasFoundPlayer;
+        private bool _isWaiting;
         
         // Start is called before the first frame update
         private void Start()
@@ -42,7 +42,7 @@ namespace Code.Scripts.Enemy
         {
             switch (getStates)
             {
-                case EnemyStates.Target when !_foundPlayer:
+                case EnemyStates.Target when !_hasFoundPlayer:
                     GetTarget(_currentTarget);
                     break;
                 case EnemyStates.Move:
@@ -56,21 +56,21 @@ namespace Code.Scripts.Enemy
 
         private void GetTarget(Transform getTarget)
         {
-            if (_foundPlayer)
+            if (_hasFoundPlayer)
             {
                 _currentTarget = getTarget;
                 getStates = EnemyStates.Move;
             }
             else
             {
-                var structures = GameObject.FindGameObjectsWithTag("Structure");
-                var shortestDis = Mathf.Infinity;
+                GameObject[] structures = GameObject.FindGameObjectsWithTag("Structure"); 
+                float shortestDis = Mathf.Infinity;
                 Transform nearestStructure = null;
 
                 foreach (var structureObj in structures)
                 {
-                    var structure = structureObj.transform;
-                    var distance = Vector3.Distance(transform.position, structure.position);
+                    Transform structure = structureObj.transform;
+                    float distance = Vector3.Distance(transform.position, structure.position);
                     if (distance < shortestDis)
                     {
                         shortestDis = distance;
@@ -99,7 +99,7 @@ namespace Code.Scripts.Enemy
 
         private void AttackTarget()
         {
-            StartCoroutine(Delay(4, 15));
+            StartCoroutine(DealDamage(4, 15));
 
             if (_currentTarget == null)
             {
@@ -114,16 +114,16 @@ namespace Code.Scripts.Enemy
             }
         }
 
-        private IEnumerator Delay(int delay, int damage)
+        private IEnumerator DealDamage(int delay, int damage)
         {
-            if (!_wait)
+            if (!_isWaiting)
             {
-                _wait = true;
+                _isWaiting = true;
                 _currentTarget.GetComponent<DepleteHealth>().health -= damage;
                 if (_currentTarget.GetComponent<DepleteHealth>().health <= 0)
                     Destroy(_currentTarget.gameObject);
                 yield return new WaitForSeconds(delay);
-                _wait = false;
+                _isWaiting = false;
             }
         }
 
@@ -132,7 +132,7 @@ namespace Code.Scripts.Enemy
             if (other.CompareTag("Player"))
             {
                 getStates = EnemyStates.Target;
-                _foundPlayer = true;
+                _hasFoundPlayer = true;
                 GetTarget(other.transform);
             }
         }
@@ -142,8 +142,8 @@ namespace Code.Scripts.Enemy
             if (other.CompareTag("Player"))
             {
                 getStates = EnemyStates.Target;
-                _foundPlayer = false;
-                GetTarget(mainStructure);
+                _hasFoundPlayer = false;
+                GetTarget(_currentTarget);
             }
         }
     }
