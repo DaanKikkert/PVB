@@ -49,6 +49,7 @@ namespace Code.Scripts.Enemy
                     MoveTowardsTarget();
                     break;
                 case EnemyStates.Attack:
+                    AttackTarget();
                     break;
             }
         }
@@ -94,7 +95,6 @@ namespace Code.Scripts.Enemy
                 getStates = EnemyStates.Attack;
                 AttackTarget();
             }
-                
         }
 
         private void AttackTarget()
@@ -106,6 +106,12 @@ namespace Code.Scripts.Enemy
                 getStates = EnemyStates.Target;
                 GetTarget(mainStructure);
             }
+
+            if (Vector3.Distance(transform.position, _currentTarget.position) >= attackRange)
+            {
+                getStates = EnemyStates.Target;
+                GetTarget(_currentTarget);
+            }
         }
 
         private IEnumerator Delay(int delay, int damage)
@@ -113,7 +119,9 @@ namespace Code.Scripts.Enemy
             if (!_wait)
             {
                 _wait = true;
-                _currentTarget.GetComponent<DepleteHealth>().getHealth.health -= damage;
+                _currentTarget.GetComponent<DepleteHealth>().health -= damage;
+                if (_currentTarget.GetComponent<DepleteHealth>().health <= 0)
+                    Destroy(_currentTarget.gameObject);
                 yield return new WaitForSeconds(delay);
                 _wait = false;
             }

@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &576146186
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &2001268868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &2050503953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &2057089026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &2122992551
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getHealth: {fileID: 11400000, guid: b910f204387050543952292bcd70ec01, type: 2}
+  health: 100
 --- !u!1 &2145003821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,6 +1515,7 @@ GameObject:
   - component: {fileID: 2145003822}
   - component: {fileID: 2145003832}
   - component: {fileID: 2145003833}
+  - component: {fileID: 2145003834}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -1694,7 +1695,20 @@ MonoBehaviour:
   enemyAgent: {fileID: 2145003832}
   mainStructure: {fileID: 2057089032}
   targetRange: 1.2
-  attackRange: 1
+  attackRange: 2.5
+--- !u!114 &2145003834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145003821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
