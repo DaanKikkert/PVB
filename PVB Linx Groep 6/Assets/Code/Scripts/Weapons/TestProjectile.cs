@@ -21,9 +21,10 @@ public class TestProjectile : MonoBehaviour
     {
         transform.Translate(Vector3.forward * (speed * Time.deltaTime));
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
+        //If statement empty as the health system is not ready to be accessed yet
         if(collision.gameObject.CompareTag(tag))
         {
             
