@@ -35,7 +35,8 @@ public class BasicMovement : MonoBehaviour
     
     private void HandlePlayerTurning()
     {
-        var (success, position) = GetMousePosition();
+        bool success = GetMousePosition().success;
+        Vector3 position = GetMousePosition().position;
         if (success)
         {
             Vector3 direction = position - transform.position;
