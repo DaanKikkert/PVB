@@ -25,7 +25,7 @@ namespace Code.UI
         private void Update()
         {
             getSlider.value = getHealth.health;
-            showHealth.text = getHealth.health + "/" + _fixedHealth;
+            showHealth.text = getHealth.health + "/" + _fixedHealth + " HP";
         }
     }
 }
