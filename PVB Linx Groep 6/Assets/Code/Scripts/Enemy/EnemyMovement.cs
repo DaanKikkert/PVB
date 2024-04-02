@@ -110,7 +110,13 @@ namespace Code.Scripts.Enemy
             if (Vector3.Distance(transform.position, _currentTarget.position) >= attackRange)
             {
                 getStates = EnemyStates.Target;
-                GetTarget(_currentTarget);
+                GetTarget(mainStructure);
+                if (mainStructure == null)
+                {
+                    GetTarget(_currentTarget);
+                    if (_currentTarget == null)
+                        _currentTarget = null;
+                }
             }
         }
 
