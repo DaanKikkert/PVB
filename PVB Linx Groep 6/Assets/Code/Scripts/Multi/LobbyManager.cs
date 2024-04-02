@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
@@ -13,6 +14,12 @@ namespace Code.Scripts.Multi
         [SerializeField] private GameObject[] changingPanels;
         [SerializeField] private Text roomName;
         [SerializeField] [Range(1, 40)] private int getNumber;
+
+        [Header("Get Rooms Settings: ")]
+        [SerializeField] private RoomItem roomItemPref;
+        [SerializeField] private Transform contentObject;
+
+        private List<RoomItem> _getItem = new List<RoomItem>();
     
 
         // Start is called before the first frame update
@@ -27,7 +34,20 @@ namespace Code.Scripts.Multi
 
         public override void OnJoinedRoom()
         {
-            
+            changingPanels[0].SetActive(false); 
+            changingPanels[1].SetActive(true);
+        }
+
+        public override void OnRoomListUpdate(List<RoomInfo> roomInfos)
+        {
+            UpdateRoomList(roomInfos);
+        }
+
+        private void UpdateRoomList(List<RoomInfo> list)
+        {
+            foreach (RoomItem item in _getItem)
+                Destroy(item.gameObject);
+            _getItem.Clear();
         }
     }
 }
