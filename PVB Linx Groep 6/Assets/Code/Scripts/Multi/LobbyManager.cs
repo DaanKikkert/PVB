@@ -38,16 +38,21 @@ namespace Code.Scripts.Multi
             changingPanels[1].SetActive(true);
         }
 
-        public override void OnRoomListUpdate(List<RoomInfo> roomInfos)
-        {
-            UpdateRoomList(roomInfos);
-        }
+        public override void OnRoomListUpdate(List<RoomInfo> roomInfos) => UpdateRoomList(roomInfos);
 
         private void UpdateRoomList(List<RoomInfo> list)
         {
+            // Destroy first all in list before spawning new and updated list
             foreach (RoomItem item in _getItem)
                 Destroy(item.gameObject);
             _getItem.Clear();
+
+            foreach (RoomInfo room in list)
+            {
+                RoomItem newRoom = Instantiate(roomItemPref, contentObject);
+                newRoom.SetRoomName(room.Name);
+                _getItem.Add(newRoom);
+            }
         }
     }
 }
