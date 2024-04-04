@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Code.Scripts.Health
 {
@@ -6,5 +7,19 @@ namespace Code.Scripts.Health
     {
         [Header("Get Health: ")] 
         public int health;
+
+        [Header("Game Over Settings: ")] 
+        [SerializeField] private GameObject getGameOver;
+
+
+        public void CheckHealth()
+        {
+            if (health <= 0)
+            {
+                if (gameObject.CompareTag("Castle"))
+                    SceneManager.LoadScene("Castle");
+                Destroy(gameObject);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Code.Scripts.Enemy
         Attack
     }
     
-    public class EnemyMovement : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
 
         [Header("Enemy Movement Settings: ")] 
@@ -26,6 +26,10 @@ namespace Code.Scripts.Enemy
         [SerializeField] private float targetRange;
         [SerializeField] [Range(0,5)] private float attackRange;
 
+        [Header("Scale able Attack Settings: ")]
+        [SerializeField] private int delay;
+        [SerializeField] private int damage;
+        
         private Transform _currentTarget;
         private bool _hasFoundPlayer;
         private bool _isWaiting;
@@ -99,7 +103,7 @@ namespace Code.Scripts.Enemy
 
         private void AttackTarget()
         {
-            StartCoroutine(DealDamage(4, 15));
+            StartCoroutine(DealDamage(delay, damage));
 
             if (_currentTarget == null)
             {
@@ -110,7 +114,9 @@ namespace Code.Scripts.Enemy
             if (Vector3.Distance(transform.position, _currentTarget.position) >= attackRange)
             {
                 getStates = EnemyStates.Target;
+                _currentTarget = mainStructure;
                 GetTarget(mainStructure);
+                
                 if (mainStructure == null)
                 {
                     GetTarget(_currentTarget);
@@ -125,9 +131,12 @@ namespace Code.Scripts.Enemy
             if (!_isWaiting)
             {
                 _isWaiting = true;
-                _currentTarget.GetComponent<DepleteHealth>().health -= damage;
-                if (_currentTarget.GetComponent<DepleteHealth>().health <= 0)
-                    Destroy(_currentTarget.gameObject);
+                DepleteHealth targetHealth = _currentTarget.GetComponent<DepleteHealth>();
+                if (targetHealth == null)
+                    targetHealth = _currentTarget.GetComponentInChildren<DepleteHealth>();
+                
+                targetHealth.health -= damage;
+                targetHealth.CheckHealth();
                 yield return new WaitForSeconds(delay);
                 _isWaiting = false;
             }
