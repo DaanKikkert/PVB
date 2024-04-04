@@ -29,7 +29,6 @@ namespace Weapons
             _hitbox.enabled = true;
             yield return new WaitForSeconds(hitBoxDuration);
             _hitbox.enabled = false;
-            Debug.Log("We have attacked lads");
         }
 
         public override void SpawnWeapon(Transform parent)
