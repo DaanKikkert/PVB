@@ -12,7 +12,7 @@ namespace Weapons
 
         public override void Attack()
         {
-            Instantiate(projectile, attackSpawnPosition , attackDirection);
+            Instantiate(projectile, p_attackSpawnPosition , p_attackDirection);
         }
     }
 }

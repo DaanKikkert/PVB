@@ -16,8 +16,8 @@ namespace Weapons
 
         [SerializeField] private Vector3 hitboxScale = new Vector3(1, 1, 1);
 
-        private BoxCollider hitbox;
-        private WeaponMonoInstance monoInstance;
+        private BoxCollider _hitbox;
+        private WeaponMonoInstance _monoInstance;
 
         public override void Attack()
         {
@@ -26,28 +26,28 @@ namespace Weapons
 
         private IEnumerator ToggleHitbox()
         {
-            hitbox.enabled = true;
+            _hitbox.enabled = true;
             yield return new WaitForSeconds(hitBoxDuration);
-            hitbox.enabled = false;
+            _hitbox.enabled = false;
             Debug.Log("We have attacked lads");
         }
 
         public override void SpawnWeapon(Transform parent)
         {
             base.SpawnWeapon(parent);
-            monoInstance = parent.AddComponent<WeaponMonoInstance>();
-            hitbox = parent.AddComponent<BoxCollider>();
-            hitbox.size = hitboxScale;
-            hitbox.center = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + hitboxOffset);
-            hitbox.isTrigger = true;
-            hitbox.enabled = false;
+            _monoInstance = parent.AddComponent<WeaponMonoInstance>();
+            _hitbox = parent.AddComponent<BoxCollider>();
+            _hitbox.size = hitboxScale;
+            _hitbox.center = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + hitboxOffset);
+            _hitbox.isTrigger = true;
+            _hitbox.enabled = false;
         }
 
         public override void DespawnWeapon()
         {
             base.DespawnWeapon();
-            Destroy(hitbox);
-            Destroy(monoInstance);
+            Destroy(_hitbox);
+            Destroy(_monoInstance);
         }
     }
 }

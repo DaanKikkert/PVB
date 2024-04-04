@@ -5,11 +5,11 @@ using Weapons;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private float attackTimer;
-
     public Weapon weapon;
 
-    public GameObject spawnPoint;
+    [SerializeField] private GameObject spawnPoint;
+
+    private float _attackTimer;    
 
     private void Start()
     {
@@ -18,14 +18,14 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        attackTimer -= Time.deltaTime;
+        _attackTimer -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (attackTimer <= 0f)
+            if (_attackTimer <= 0f)
             {
                 weapon.setAttackDirection(spawnPoint.transform.rotation, spawnPoint.transform.position);
                 weapon.Attack();
-                attackTimer = weapon.attackDelay;
+                _attackTimer = weapon.attackDelay;
             }
         }
         

@@ -14,28 +14,28 @@ namespace Weapons
         [Header("Visuals")]
         [SerializeField] protected GameObject weaponModel;
 
-        protected Vector3 attackSpawnPosition;
-        protected Quaternion attackDirection;
+        protected Vector3 p_attackSpawnPosition;
+        protected Quaternion p_attackDirection;
 
-        protected GameObject model;
+        protected GameObject p_model;
         
         public virtual void SpawnWeapon(Transform parent)
         {
-            model = Instantiate(weaponModel);
-            model.transform.SetParent(parent);
+            p_model = Instantiate(weaponModel);
+            p_model.transform.SetParent(parent);
         }
 
         public virtual void DespawnWeapon()
         {
-            Destroy(model);
+            Destroy(p_model);
         }
 
         public abstract void Attack();
 
         public void setAttackDirection(Quaternion dir, Vector3 pos)
         {
-            attackDirection = dir;
-            attackSpawnPosition = pos;
+            p_attackDirection = dir;
+            p_attackSpawnPosition = pos;
         }
     }
 }
