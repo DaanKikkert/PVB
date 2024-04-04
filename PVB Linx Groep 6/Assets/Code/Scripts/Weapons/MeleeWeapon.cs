@@ -21,10 +21,10 @@ namespace Weapons
 
         public override void Attack()
         {
-            WeaponMonoInstance.instance.StartCoroutine(EnableHitbox());
+            WeaponMonoInstance.instance.StartCoroutine(ToggleHitbox());
         }
 
-        private IEnumerator EnableHitbox()
+        private IEnumerator ToggleHitbox()
         {
             hitbox.enabled = true;
             yield return new WaitForSeconds(hitBoxDuration);
