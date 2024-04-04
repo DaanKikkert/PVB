@@ -103,7 +103,7 @@ namespace Code.Scripts.Enemy
 
         private void AttackTarget()
         {
-            StartCoroutine(DealDamage(delay, damage));
+            StartCoroutine(DealDamage());
 
             if (_currentTarget == null)
             {
@@ -126,7 +126,7 @@ namespace Code.Scripts.Enemy
             }
         }
 
-        private IEnumerator DealDamage(int delay, int damage)
+        private IEnumerator DealDamage()
         {
             if (!_isWaiting)
             {
