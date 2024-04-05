@@ -3,14 +3,10 @@ using UnityEngine.SceneManagement;
 
 namespace Code.Scripts.Health
 {
-    public class DepleteHealth : MonoBehaviour
+    public class Health : MonoBehaviour
     {
         [Header("Get Health: ")] 
         public int health;
-
-        [Header("Game Over Settings: ")] 
-        [SerializeField] private GameObject getGameOver;
-
 
         public void CheckHealth()
         {

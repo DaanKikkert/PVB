@@ -9,7 +9,7 @@ namespace Code.UI
 
         [Header("Slider Settings: ")] 
         [SerializeField] private Slider getSlider;
-        [SerializeField] private DepleteHealth getHealth;
+        [SerializeField] private Health getHealth;
         [SerializeField] private Text showHealth;
 
         private int _fixedHealth;

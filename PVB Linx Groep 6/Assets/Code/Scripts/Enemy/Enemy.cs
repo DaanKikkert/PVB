@@ -131,9 +131,9 @@ namespace Code.Scripts.Enemy
             if (!_isWaiting)
             {
                 _isWaiting = true;
-                DepleteHealth targetHealth = _currentTarget.GetComponent<DepleteHealth>();
+                Health.Health targetHealth = _currentTarget.GetComponent<Health.Health>();
                 if (targetHealth == null)
-                    targetHealth = _currentTarget.GetComponentInChildren<DepleteHealth>();
+                    targetHealth = _currentTarget.GetComponentInChildren<Health.Health>();
                 
                 targetHealth.health -= damage;
                 targetHealth.CheckHealth();
