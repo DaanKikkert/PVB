@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -9,8 +10,14 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>(0);
     public int wave;
     public int totalEnemies;
+    public static WaveManager instance;
 
-    
+    private void Awake()
+    {
+        instance = this;
+    }
+
+
     //MOCKUP
     public int playerCount;
     
@@ -24,11 +31,18 @@ public class WaveManager : MonoBehaviour
             NewWave();
         }
     }
+    
+    public void CheckForNewWave()
+    {
+        if (totalEnemies <= 0)
+            NewWave();
+    }
+    
 
     public void NewWave()
     {
         wave++;
-        foreach (var spawner in _spawners)
+        foreach (EnemySpawner spawner in _spawners)
         {
             spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
@@ -38,9 +52,22 @@ public class WaveManager : MonoBehaviour
     private int CalculateEnemyCount()
     {
         float baseMultiplier = 1.3f;
-       
         int zombieCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
         return zombieCount;
+    }
+
+    private void clearWave(int goToWave)
+    {
+        foreach (EnemySpawner spawner in _spawners)
+        {
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                Destroy(spawner.transform.GetChild(i));
+            }
+        }
+        totalEnemies = 0;
+        wave = goToWave - 1;
+        NewWave();
     }
 
 }
