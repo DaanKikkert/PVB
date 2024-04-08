@@ -23,14 +23,6 @@ public class WaveManager : MonoBehaviour
     
     
     private int _baseEnemyCount = 20;
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NewWave();
-        }
-    }
     
     public void CheckForNewWave()
     {
@@ -52,8 +44,8 @@ public class WaveManager : MonoBehaviour
     private int CalculateEnemyCount()
     {
         float baseMultiplier = 1.3f;
-        int zombieCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
-        return zombieCount;
+        int enemyCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
+        return enemyCount;
     }
 
     private void clearWave(int goToWave)
