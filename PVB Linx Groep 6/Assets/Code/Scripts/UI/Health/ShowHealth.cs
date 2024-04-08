@@ -1,4 +1,5 @@
-using Code.Scripts.Health;
+using Code.Scripts;
+using Code.Scripts.UI.Health;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace Code.UI
 
         [Header("Slider Settings: ")] 
         [SerializeField] private Slider getSlider;
-        [SerializeField] private Health getHealth;
+        [SerializeField] private UniversalHealth getHealth;
         [SerializeField] private Text showHealth;
 
         private int _fixedHealth;
@@ -17,15 +18,15 @@ namespace Code.UI
         // Start is called before the first frame update
         private void Awake()
         {
-            getSlider.maxValue = getHealth.health;
-            _fixedHealth = getHealth.health;
+            getSlider.maxValue = getHealth.GetMaxHealth();
+            _fixedHealth = getHealth.GetCurrentHealth();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            getSlider.value = getHealth.health;
-            showHealth.text = getHealth.health + "/" + _fixedHealth + " HP";
+            getSlider.value = getHealth.GetCurrentHealth();
+            showHealth.text = getHealth.GetCurrentHealth() + "/" + _fixedHealth + " HP";
         }
     }
 }

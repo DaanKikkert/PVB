@@ -1,12 +1,10 @@
 using System.Collections;
-using Code.Scripts.Health;
+using Code.Scripts.UI.Health;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 namespace Code.Scripts.Enemy
 {
-
     public enum EnemyStates
     {
         Target,
@@ -22,8 +20,7 @@ namespace Code.Scripts.Enemy
         [SerializeField] private NavMeshAgent enemyAgent;
         [SerializeField] private Transform mainStructure;
 
-        [Header("Range Settings: ")] 
-        [SerializeField] private float targetRange;
+        [Header("Range Settings: ")]
         [SerializeField] [Range(0,5)] private float attackRange;
 
         [Header("Scale able Attack Settings: ")]
@@ -131,12 +128,13 @@ namespace Code.Scripts.Enemy
             if (!_isWaiting)
             {
                 _isWaiting = true;
-                Health.Health targetHealth = _currentTarget.GetComponent<Health.Health>();
+
+                UniversalHealth targetHealth = _currentTarget.GetComponent<UniversalHealth>();
+
                 if (targetHealth == null)
-                    targetHealth = _currentTarget.GetComponentInChildren<Health.Health>();
-                
-                targetHealth.health -= damage;
-                targetHealth.CheckHealth();
+                    targetHealth = _currentTarget.GetComponentInChildren<UniversalHealth>();
+
+                targetHealth.TakeDamage(damage);
                 yield return new WaitForSeconds(delay);
                 _isWaiting = false;
             }
