@@ -5,8 +5,7 @@ namespace Code.Player
 {
     public class PlayerSpawner : MonoBehaviour
     {
-
-        [Header("Player Spawner Settings: ")] 
+        
         [SerializeField] private GameObject playerPref;
         [SerializeField] private List<Transform> spawnPoints = new();
 
