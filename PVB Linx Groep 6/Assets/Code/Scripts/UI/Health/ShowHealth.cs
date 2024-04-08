@@ -1,5 +1,4 @@
 using Code.Scripts;
-using Code.Scripts.UI.Health;
 using UnityEngine;
 using UnityEngine.UI;
 
