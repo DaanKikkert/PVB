@@ -1,12 +1,9 @@
 using System.Collections;
-using Code.Scripts.Health;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Rendering;
 
 namespace Code.Scripts.Enemy
 {
-
     public enum EnemyStates
     {
         Target,
@@ -14,7 +11,7 @@ namespace Code.Scripts.Enemy
         Attack
     }
     
-    public class EnemyMovement : MonoBehaviour
+    public class Enemy : MonoBehaviour
     {
 
         [Header("Enemy Movement Settings: ")] 
@@ -22,10 +19,13 @@ namespace Code.Scripts.Enemy
         [SerializeField] private NavMeshAgent enemyAgent;
         [SerializeField] private Transform mainStructure;
 
-        [Header("Range Settings: ")] 
-        [SerializeField] private float targetRange;
+        [Header("Range Settings: ")]
         [SerializeField] [Range(0,5)] private float attackRange;
 
+        [Header("Scale able Attack Settings: ")]
+        [SerializeField] private int delay;
+        [SerializeField] private int damage;
+        
         private Transform _currentTarget;
         private bool _hasFoundPlayer;
         private bool _isWaiting;
@@ -99,7 +99,7 @@ namespace Code.Scripts.Enemy
 
         private void AttackTarget()
         {
-            StartCoroutine(DealDamage(4, 15));
+            StartCoroutine(DealDamage());
 
             if (_currentTarget == null)
             {
@@ -110,18 +110,30 @@ namespace Code.Scripts.Enemy
             if (Vector3.Distance(transform.position, _currentTarget.position) >= attackRange)
             {
                 getStates = EnemyStates.Target;
-                GetTarget(_currentTarget);
+                _currentTarget = mainStructure;
+                GetTarget(mainStructure);
+                
+                if (mainStructure == null)
+                {
+                    GetTarget(_currentTarget);
+                    if (_currentTarget == null)
+                        _currentTarget = null;
+                }
             }
         }
 
-        private IEnumerator DealDamage(int delay, int damage)
+        private IEnumerator DealDamage()
         {
             if (!_isWaiting)
             {
                 _isWaiting = true;
-                _currentTarget.GetComponent<DepleteHealth>().health -= damage;
-                if (_currentTarget.GetComponent<DepleteHealth>().health <= 0)
-                    Destroy(_currentTarget.gameObject);
+
+                UniversalHealth targetHealth = _currentTarget.GetComponent<UniversalHealth>();
+
+                if (targetHealth == null)
+                    targetHealth = _currentTarget.GetComponentInChildren<UniversalHealth>();
+
+                targetHealth.TakeDamage(damage);
                 yield return new WaitForSeconds(delay);
                 _isWaiting = false;
             }

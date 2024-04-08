@@ -1,46 +1,61 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class UniversalHealth : MonoBehaviour
+namespace Code.Scripts
 {
-    [SerializeField] private int _maxHealth;
-    private int _currentHealth;
-    
-    private bool _didDamage = false;
-    public bool isFullHealth = true;
-    private Transform _currentTransform;
-    
-    
-    private void Awake()
+    public class UniversalHealth : MonoBehaviour
     {
-        _currentHealth = _maxHealth;
-    }
+        [SerializeField] private int _maxHealth;
+        private int _currentHealth;
 
-    public void TakeDamage(int amount)
-    {
-        _currentHealth -= amount;
-        if (_currentHealth <= 0)
-            Die();
-    }
+        [SerializeField] private UnityEvent onDeath;
+        [SerializeField] private UnityEvent onHealthChange;
 
-    public void HealHealth(int amount)
-    {
-        _currentHealth += amount;
-        if (_currentHealth >= _maxHealth)
+        private bool _didDamage = false;
+        public bool isFullHealth = true;
+        private Transform _currentTransform;
+
+        public int GetMaxHealth()
+        {
+            return _maxHealth;
+        }
+
+        public int GetCurrentHealth()
+        {
+            return _currentHealth;
+        }
+        
+        private void Awake()
         {
             _currentHealth = _maxHealth;
-            isFullHealth = true;
         }
-        else
-        {
-            isFullHealth = false;
-        }
-    }
 
-    private void Die()
-    {
-        Destroy(gameObject);
+        public void TakeDamage(int amount)
+        {
+            _currentHealth -= amount;
+            onHealthChange.Invoke();
+            if (_currentHealth <= 0)
+                Die();
+        }
+
+        public void HealHealth(int amount)
+        {
+            _currentHealth += amount;
+            onHealthChange.Invoke();
+            if (_currentHealth >= _maxHealth)
+            {
+                _currentHealth = _maxHealth;
+                isFullHealth = true;
+            }
+            else
+            {
+                isFullHealth = false;
+            }
+        }
+
+        private void Die()
+        {
+            onDeath.Invoke();
+        }
     }
 }
