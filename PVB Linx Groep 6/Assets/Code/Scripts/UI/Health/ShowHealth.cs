@@ -19,11 +19,11 @@ namespace Code.UI
         private void Awake()
         {
             getSlider.maxValue = getHealth.GetMaxHealth();
-            _fixedHealth = getHealth.GetCurrentHealth();
+            _fixedHealth = getHealth.GetMaxHealth();
+            showHealth.text = getHealth.GetMaxHealth() + "/" + getHealth.GetMaxHealth();
         }
 
-        // Update is called once per frame
-        private void Update()
+        public void ShowsHealth()
         {
             getSlider.value = getHealth.GetCurrentHealth();
             showHealth.text = getHealth.GetCurrentHealth() + "/" + _fixedHealth + " HP";

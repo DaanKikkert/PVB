@@ -9,7 +9,8 @@ namespace Code.Scripts
         private int _currentHealth;
 
         [SerializeField] private UnityEvent onDeath;
-    
+        [SerializeField] private UnityEvent onHealthChange;
+
         private bool _didDamage = false;
         public bool isFullHealth = true;
         private Transform _currentTransform;
@@ -32,6 +33,7 @@ namespace Code.Scripts
         public void TakeDamage(int amount)
         {
             _currentHealth -= amount;
+            onHealthChange.Invoke();
             if (_currentHealth <= 0)
                 Die();
         }
@@ -39,6 +41,7 @@ namespace Code.Scripts
         public void HealHealth(int amount)
         {
             _currentHealth += amount;
+            onHealthChange.Invoke();
             if (_currentHealth >= _maxHealth)
             {
                 _currentHealth = _maxHealth;

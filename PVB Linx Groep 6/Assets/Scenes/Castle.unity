@@ -294,6 +294,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
   isFullHealth: 1
 --- !u!1001 &827456466
 PrefabInstance:
@@ -672,6 +675,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1075833163}
+        m_TargetAssemblyTypeName: Code.UI.ShowHealth, Assembly-CSharp
+        m_MethodName: ShowsHealth
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isFullHealth: 1
 --- !u!114 &1068138064
 MonoBehaviour:
@@ -683,6 +701,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9f46c01d826a9744e984cb063d5df96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1075833163 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1537664153522576406, guid: 5b910bc7fcee5ec4cba91a17a577741f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1070385528731706898}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bcfb7a73b538f4e814f20feb007cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1099916616
@@ -982,6 +1012,9 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
   isFullHealth: 1
 --- !u!1 &1729016560
 GameObject:
@@ -1014,6 +1047,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1909912726}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1746891552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1537664153522576406, guid: 5b910bc7fcee5ec4cba91a17a577741f,
+    type: 3}
+  m_PrefabInstance: {fileID: 827456466}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bcfb7a73b538f4e814f20feb007cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1800461491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1528,6 +1573,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChange:
     m_PersistentCalls:
       m_Calls: []
   isFullHealth: 1
@@ -2334,6 +2382,21 @@ MonoBehaviour:
       - m_Target: {fileID: 7914114483874963765}
         m_TargetAssemblyTypeName: Code.Scripts.DeathObject, Assembly-CSharp
         m_MethodName: DestroyObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1746891552}
+        m_TargetAssemblyTypeName: Code.UI.ShowHealth, Assembly-CSharp
+        m_MethodName: ShowsHealth
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
