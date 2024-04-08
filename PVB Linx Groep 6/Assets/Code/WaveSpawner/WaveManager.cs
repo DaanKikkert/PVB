@@ -7,34 +7,28 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
-    [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>(0);
+    [SerializeField] private List<EnemySpawner> spawners = new List<EnemySpawner>(0);
     public int wave;
     public int totalEnemies;
     public static WaveManager instance;
-
+    [SerializeField]private int baseEnemyCount = 20;
+    [SerializeField]private float baseMultiplier = 1.3f;
+    //MOCKUP
+    public int playerCount;
     private void Awake()
     {
         instance = this;
     }
-
-
-    //MOCKUP
-    public int playerCount;
-    
-    
-    private int _baseEnemyCount = 20;
-    
     public void CheckForNewWave()
     {
         if (totalEnemies <= 0)
             NewWave();
     }
-    
 
     public void NewWave()
     {
         wave++;
-        foreach (EnemySpawner spawner in _spawners)
+        foreach (EnemySpawner spawner in spawners)
         {
             spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
@@ -43,14 +37,13 @@ public class WaveManager : MonoBehaviour
 
     private int CalculateEnemyCount()
     {
-        float baseMultiplier = 1.3f;
-        int enemyCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
+        int enemyCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + baseEnemyCount)/spawners.Count);  
         return enemyCount;
     }
 
-    private void clearWave(int goToWave)
+    public void ClearWave(int goToWave)
     {
-        foreach (EnemySpawner spawner in _spawners)
+        foreach (EnemySpawner spawner in spawners)
         {
             for (int i = 0; i < spawner.transform.childCount; i++)
             {
