@@ -1,34 +1,34 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
-    [SerializeField] private List<EnemySpawner> _spawners = new List<EnemySpawner>(0);
+    [SerializeField] private List<EnemySpawner> spawners = new List<EnemySpawner>(0);
     public int wave;
     public int totalEnemies;
-
-    
+    public static WaveManager instance;
+    [SerializeField]private int baseEnemyCount = 20;
+    [SerializeField]private float baseMultiplier = 1.3f;
     //MOCKUP
     public int playerCount;
-    
-    
-    private int _baseEnemyCount = 20;
-
-    public void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
+        instance = this;
+    }
+    public void CheckForNewWave()
+    {
+        if (totalEnemies <= 0)
             NewWave();
-        }
     }
 
     public void NewWave()
     {
         wave++;
-        foreach (var spawner in _spawners)
+        foreach (EnemySpawner spawner in spawners)
         {
             spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
@@ -37,10 +37,22 @@ public class WaveManager : MonoBehaviour
 
     private int CalculateEnemyCount()
     {
-        float baseMultiplier = 1.3f;
-       
-        int zombieCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + _baseEnemyCount)/_spawners.Count);  
-        return zombieCount;
+        int enemyCount =  Mathf.RoundToInt(((baseMultiplier * wave * playerCount) + baseEnemyCount)/spawners.Count);  
+        return enemyCount;
+    }
+
+    public void ClearWave(int goToWave)
+    {
+        foreach (EnemySpawner spawner in spawners)
+        {
+            for (int i = 0; i < spawner.transform.childCount; i++)
+            {
+                Destroy(spawner.transform.GetChild(i));
+            }
+        }
+        totalEnemies = 0;
+        wave = goToWave - 1;
+        NewWave();
     }
 
 }

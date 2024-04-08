@@ -19,11 +19,7 @@ public class BasicMovement : MonoBehaviour
     {
         HandlePlayerMovement();
         HandlePlayerTurning();
-
     }
-
-  
-
     private void HandlePlayerMovement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
