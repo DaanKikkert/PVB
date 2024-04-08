@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour
 {
    
     [SerializeField] private Transform zone;
-    [SerializeField] private Transform enemyHolder;
+    public Transform enemyHolder;
     private Vector2 _zoneSize;
 
     private void Awake()
