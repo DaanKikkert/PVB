@@ -26,17 +26,13 @@ public class Projectile : MonoBehaviour
         if(_attackerTag == "Player")
         {
             if (other.gameObject.CompareTag("Enemy"))
-            {
                 other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
-            }
         }
 
         if (_attackerTag == "Enemy")
         {
             if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
-            {
                 other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
-            }
         }
     }
 
