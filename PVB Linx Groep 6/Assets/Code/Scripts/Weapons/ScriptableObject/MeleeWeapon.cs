@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Code.Scripts.Weapons;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,11 +13,11 @@ namespace Weapons
         [SerializeField] private float hitBoxDuration = 0.1f;
         [Tooltip("How far the hitbox should be placed in front of the player")]
         [SerializeField] private float hitboxOffset = 1;
-
         [SerializeField] private Vector3 hitboxScale = new Vector3(1, 1, 1);
 
         private BoxCollider _hitbox;
         private WeaponMonoInstance _monoInstance;
+        private DealDamageOnCollision damageScript;
 
         public override void Attack()
         {
@@ -35,9 +35,12 @@ namespace Weapons
         {
             base.SpawnWeapon(parent);
             _monoInstance = parent.AddComponent<WeaponMonoInstance>();
+            damageScript = parent.AddComponent<DealDamageOnCollision>();
+            damageScript.SetDamage(damage);
             _hitbox = parent.AddComponent<BoxCollider>();
             _hitbox.size = hitboxScale;
-            _hitbox.center = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + hitboxOffset);
+            Vector3 position = parent.transform.position;
+            _hitbox.center = new Vector3( 0, 0, hitboxOffset);
             _hitbox.isTrigger = true;
             _hitbox.enabled = false;
         }
