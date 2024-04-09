@@ -17,17 +17,13 @@ namespace Code.Scripts.Weapons
             if (tag == "Player")
             {
                 if (other.gameObject.CompareTag("Enemy"))
-                {
                     other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
-                }
             }
 
             if (tag == "Enemy")
             {
-                if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
-                {
+                if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle")) 
                     other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
-                }
             }
         }
 

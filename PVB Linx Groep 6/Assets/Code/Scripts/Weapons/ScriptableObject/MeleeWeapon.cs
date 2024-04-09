@@ -17,7 +17,7 @@ namespace Weapons
 
         private BoxCollider _hitbox;
         private WeaponMonoInstance _monoInstance;
-        private DealDamageOnCollision damageScript;
+        private DealDamageOnCollision _damageScript;
 
         public override void Attack()
         {
@@ -34,12 +34,10 @@ namespace Weapons
         public override void SpawnWeapon(Transform parent)
         {
             base.SpawnWeapon(parent);
-            _monoInstance = parent.AddComponent<WeaponMonoInstance>();
-            damageScript = parent.AddComponent<DealDamageOnCollision>();
-            damageScript.SetDamage(damage);
+            _damageScript = parent.AddComponent<DealDamageOnCollision>();
             _hitbox = parent.AddComponent<BoxCollider>();
+            _damageScript.SetDamage(damage);
             _hitbox.size = hitboxScale;
-            Vector3 position = parent.transform.position;
             _hitbox.center = new Vector3( 0, 0, hitboxOffset);
             _hitbox.isTrigger = true;
             _hitbox.enabled = false;
@@ -49,7 +47,7 @@ namespace Weapons
         {
             base.DespawnWeapon();
             Destroy(_hitbox);
-            Destroy(_monoInstance);
+            Destroy(_damageScript);
         }
     }
 }

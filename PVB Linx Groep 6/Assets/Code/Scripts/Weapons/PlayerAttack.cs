@@ -18,10 +18,7 @@ public class PlayerAttack : MonoBehaviour
     {
         _attackTimer -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0))
-        {
             Attack();
-        }
-        
     }
 
     private void Attack()

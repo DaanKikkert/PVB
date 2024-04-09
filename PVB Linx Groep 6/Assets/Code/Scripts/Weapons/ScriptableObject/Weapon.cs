@@ -8,7 +8,6 @@ namespace Weapons
         [Header("Weapon stats")]
         [SerializeField] protected int damage;
         [SerializeField] public float attackDelay;
-        [SerializeField] protected List<string> tag;
         
         [Header("Visuals")]
         [SerializeField] protected GameObject weaponModel;
