@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Weapons
@@ -10,10 +8,10 @@ namespace Weapons
         [Header("Weapon stats")]
         [SerializeField] protected int damage;
         [SerializeField] public float attackDelay;
-
+        
         [Header("Visuals")]
         [SerializeField] protected GameObject weaponModel;
-
+        
         protected Vector3 p_attackSpawnPosition;
         protected Quaternion p_attackDirection;
 
@@ -22,7 +20,9 @@ namespace Weapons
         public virtual void SpawnWeapon(Transform parent)
         {
             p_model = Instantiate(weaponModel);
-            p_model.transform.SetParent(parent);
+            p_model.gameObject.transform.SetParent(parent);
+            p_model.transform.position = parent.transform.position;
+            p_model.transform.rotation = parent.transform.rotation;
         }
 
         public virtual void DespawnWeapon()

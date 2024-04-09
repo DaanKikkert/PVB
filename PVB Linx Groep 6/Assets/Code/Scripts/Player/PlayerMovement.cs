@@ -26,7 +26,7 @@ public class BasicMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
         
-        rb.MovePosition((Vector3)transform.position + (direction * moveSpeed * Time.deltaTime));
+        rb.MovePosition((Vector3)transform.position + (direction * (moveSpeed * Time.deltaTime)));
     }
     
     private void HandlePlayerTurning()
