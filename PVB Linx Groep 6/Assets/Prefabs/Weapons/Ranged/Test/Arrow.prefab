@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814226212173650828}
   - component: {fileID: 5849603100986483245}
+  - component: {fileID: 7912457743761136217}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -46,9 +47,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseDamage: 10
-  speed: 10
+  speed: 20
   lifeTime: 5
-  _attackerTag: '"Player"'
+  attackerTag: Player
+--- !u!135 &7912457743761136217
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360619707158332041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2042751953171333599
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +172,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

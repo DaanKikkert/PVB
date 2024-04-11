@@ -1,5 +1,6 @@
 using Code.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Projectile : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float lifeTime = 10f;
 
     [Tooltip("The tag of the one shooting projectile")]
-    [SerializeField] private string _attackerTag;
+    [SerializeField] private string attackerTag;
 
     private void Start()
     {
@@ -23,22 +24,29 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if(_attackerTag == "Player")
+        Debug.Log(other.tag);
+        if(attackerTag == "Player")
         {
             if (other.gameObject.CompareTag("Enemy"))
+            {
                 other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+                Destroy(this.gameObject);
+            }
         }
 
-        if (_attackerTag == "Enemy")
+        if (attackerTag == "Enemy")
         {
             if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
+            {
                 other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+                Destroy(this.gameObject);
+            }
         }
     }
 
     public Projectile(int damage, string tag)
     {
         baseDamage = damage;
-        _attackerTag = tag;
+        attackerTag = tag;
     }
 }
