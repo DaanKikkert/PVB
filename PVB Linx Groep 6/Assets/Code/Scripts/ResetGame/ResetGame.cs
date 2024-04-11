@@ -1,47 +1,43 @@
 using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace Code.Scripts
 {
     public class ResetGame : MonoBehaviour
     {
+        
+        [SerializeField] private UnityEvent onReset;
         [SerializeField] private CanvasGroup image;
         [SerializeField] private float time;
-        [SerializeField] private GameObject Base;
-
-
-        private void Awake()
-        {
-            StartCoroutine(ResetWithDelay());
-        }
-
+        [SerializeField] private UniversalHealth baseHealth;
+        private bool _isResseting = false;
         public void ResetTheGame()
         {
-            StartCoroutine(FadeEffect.FadeIn(image, time));
-            //yield return new WaitForSeconds(time / 2);
-            Instantiate(Base);
-            if (WaveManager.instance != null)
+            if (!_isResseting)
             {
-                WaveManager.instance.ClearWave(1);
+                StartCoroutine(ResetWithDelay());
             }
-            StartCoroutine(FadeEffect.FadeOut(image, time));
         }
 
         public IEnumerator ResetWithDelay()
         {
-            StartCoroutine(FadeEffect.FadeIn(image, time/2));
-            yield return new WaitForSeconds(time / 2);
-            Instantiate(Base);
+            _isResseting = true;
+            baseHealth.gameObject.SetActive(false); 
+            yield return StartCoroutine(FadeEffect.FadeIn(image, time/2));
             if (WaveManager.instance != null)
             {
                 WaveManager.instance.ClearWave(1);
             }
-            StartCoroutine(FadeEffect.FadeOut(image, time/2));
             
+            baseHealth.gameObject.SetActive(true); 
+           //BASEHEALTH DOESN'T HAVE A SETTER. HOTFIX REQUIRED.
+            baseHealth.HealHealth(20000);
+            onReset.Invoke();
+            yield return StartCoroutine(FadeEffect.FadeOut(image, time/2));
+            _isResseting = false;
+
         }
     }
 }
