@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
@@ -20,14 +18,16 @@ public class PlayerAttack : MonoBehaviour
     {
         _attackTimer -= Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0))
+            Attack();
+    }
+
+    private void Attack()
+    {
+        if (_attackTimer <= 0f)
         {
-            if (_attackTimer <= 0f)
-            {
-                weapon.setAttackDirection(spawnPoint.transform.rotation, spawnPoint.transform.position);
-                weapon.Attack();
-                _attackTimer = weapon.attackDelay;
-            }
+            weapon.setAttackDirection(spawnPoint.transform.rotation, spawnPoint.transform.position);
+            weapon.Attack();
+            _attackTimer = weapon.attackDelay;
         }
-        
     }
 }
