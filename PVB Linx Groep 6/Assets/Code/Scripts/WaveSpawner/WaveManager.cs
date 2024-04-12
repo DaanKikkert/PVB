@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefabs = new List<GameObject>(0);
     [SerializeField] private List<EnemySpawner> spawners = new List<EnemySpawner>(0);
+    [SerializeField] private int baseEnemyCount = 20;
+    [SerializeField] private float baseMultiplier = 1.3f;
+    [SerializeField] private UnityEvent updateUI;
+    
     public int wave;
-    public int totalEnemies;
     public static WaveManager instance;
-    [SerializeField]private int baseEnemyCount = 20;
-    [SerializeField]private float baseMultiplier = 1.3f;
+    
+    private int _totalEnemies;
+    
     //MOCKUP
     public int playerCount;
     
@@ -21,11 +26,18 @@ public class WaveManager : MonoBehaviour
         instance = this;
         NewWave();
     }
-    
+
+    private void Start()
+    {
+        CheckForNewWave();
+        updateUI.Invoke();
+    }
     public void CheckForNewWave()
     {
-        if (totalEnemies <= 0)
+        _totalEnemies--;
+        if (_totalEnemies <= 0)
             NewWave();
+        updateUI.Invoke();
     }
 
     public void NewWave()
@@ -35,7 +47,8 @@ public class WaveManager : MonoBehaviour
         {
             spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
         }
-        totalEnemies = CalculateEnemyCount() * 4;
+        _totalEnemies = CalculateEnemyCount() * 4;
+        updateUI.Invoke();
     }
 
     private int CalculateEnemyCount()
@@ -50,12 +63,17 @@ public class WaveManager : MonoBehaviour
         {
             for (int i = 0; i < spawner.enemyHolder.transform.childCount; i++)
             {
-                Destroy(spawner.enemyHolder.transform.GetChild(i).gameObject);
+                Destroy(spawner.enemyHolder.transform.GetChild(i));
             }
         }
-        totalEnemies = 0;
+        _totalEnemies = 0;
         wave = goToWave - 1;
         NewWave();
+    }
+
+    public int GetEnemyCount()
+    {
+        return _totalEnemies;
     }
 
 }

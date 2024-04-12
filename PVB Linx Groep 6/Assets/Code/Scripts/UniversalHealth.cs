@@ -6,13 +6,13 @@ namespace Code.Scripts
     public class UniversalHealth : MonoBehaviour
     {
         [SerializeField] private int _maxHealth;
-        private int _currentHealth;
-
-        [SerializeField] private UnityEvent onDeath;
         [SerializeField] private UnityEvent onHealthChange;
-
-        private bool _didDamage = false;
+        public UnityEvent onDeath;
+        
         public bool isFullHealth = true;
+
+        private int _currentHealth;
+        private bool _didDamage = false;
         private Transform _currentTransform;
 
         public int GetMaxHealth()
@@ -23,6 +23,11 @@ namespace Code.Scripts
         public int GetCurrentHealth()
         {
             return _currentHealth;
+        }
+
+        public void SetCurrentHealt(int health)
+        {
+            _currentHealth = health;
         }
         
         private void Awake()
