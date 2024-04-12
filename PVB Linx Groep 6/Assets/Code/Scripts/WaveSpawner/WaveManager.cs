@@ -24,6 +24,7 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        NewWave();
     }
 
     private void Start()
@@ -31,7 +32,6 @@ public class WaveManager : MonoBehaviour
         CheckForNewWave();
         updateUI.Invoke();
     }
-
     public void CheckForNewWave()
     {
         _totalEnemies--;
@@ -61,7 +61,7 @@ public class WaveManager : MonoBehaviour
     {
         foreach (EnemySpawner spawner in spawners)
         {
-            for (int i = 0; i < spawner.transform.childCount; i++)
+            for (int i = 0; i < spawner.enemyHolder.transform.childCount; i++)
             {
                 Destroy(spawner.enemyHolder.transform.GetChild(i));
             }
