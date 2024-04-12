@@ -7,15 +7,15 @@ using UnityEngine.UI;
 
 public class WaveCounter : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro waveCounterText;
-    [SerializeField] private TMP_Asset enemyCounterText;
+    [SerializeField] private Text waveCounterText;
+    [SerializeField] private Text enemyCounterText;
     
     public WaveManager waveManager;
     
     
     public void UpdateUI()
     {
-        //waveCounterText = "Wave:" + waveManager.wave.ToString();
-        //enemyCounterText.text = "Enemies remaining" + waveManager.GetEnemyCount().ToString();
+        waveCounterText.text = "Wave: " + waveManager.wave.ToString();
+        enemyCounterText.text = "Enemies: " + waveManager.GetEnemyCount().ToString();
     }
 }
