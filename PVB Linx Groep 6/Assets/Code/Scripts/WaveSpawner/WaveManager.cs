@@ -15,11 +15,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField]private float baseMultiplier = 1.3f;
     //MOCKUP
     public int playerCount;
+    
     private void Awake()
     {
         instance = this;
         NewWave();
     }
+    
     public void CheckForNewWave()
     {
         if (totalEnemies <= 0)
