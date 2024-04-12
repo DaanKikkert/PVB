@@ -17,6 +17,7 @@ public  class FadeEffect : MonoBehaviour
                 isFinished = true;
         }
     }
+    
     public static IEnumerator FadeOut(CanvasGroup image, float duration)
     {
         bool isFinished = false;
