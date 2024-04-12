@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6801036326430579810}
   - component: {fileID: 9043212485783495139}
   - component: {fileID: 880987230971324369}
-  - component: {fileID: 810892547639077195}
+  - component: {fileID: 6454032615950045663}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 7792856250574807304}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 0.615, z: -0.38}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -168,7 +168,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -195,9 +195,10 @@ MonoBehaviour:
   getStates: 1
   enemyAgent: {fileID: 9043212485783495139}
   mainStructure: {fileID: 0}
-  targetRange: 1.2
-  attackRange: 2.5
---- !u!114 &810892547639077195
+  attackRange: 5
+  delay: 1
+  damage: 5
+--- !u!114 &6454032615950045663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,7 +207,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7792856250574807304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3a8035b83fe964ca5a32df722af237, type: 3}
+  m_Script: {fileID: 11500000, guid: bfa26d39fa55c7649bc268e86bff3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  _maxHealth: 10
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  isFullHealth: 1

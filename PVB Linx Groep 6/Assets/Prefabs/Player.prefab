@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 299450572293479789}
   - component: {fileID: 97316021540823485}
   - component: {fileID: 6097181892776577323}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 6160403212510784651}
   - component: {fileID: 3718697868955672868}
   - component: {fileID: 5111636141436339357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 7565794427655860439}
   - component: {fileID: 864277748430590232}
   - component: {fileID: 7375320229968079544}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 6890731898542545982}
   - component: {fileID: 7305261862098020531}
   - component: {fileID: 3465397118962454337}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}

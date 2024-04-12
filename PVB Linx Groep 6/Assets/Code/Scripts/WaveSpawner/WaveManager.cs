@@ -15,10 +15,13 @@ public class WaveManager : MonoBehaviour
     [SerializeField]private float baseMultiplier = 1.3f;
     //MOCKUP
     public int playerCount;
+    
     private void Awake()
     {
         instance = this;
+        NewWave();
     }
+    
     public void CheckForNewWave()
     {
         if (totalEnemies <= 0)
@@ -45,9 +48,9 @@ public class WaveManager : MonoBehaviour
     {
         foreach (EnemySpawner spawner in spawners)
         {
-            for (int i = 0; i < spawner.transform.childCount; i++)
+            for (int i = 0; i < spawner.enemyHolder.transform.childCount; i++)
             {
-                Destroy(spawner.transform.GetChild(i));
+                Destroy(spawner.enemyHolder.transform.GetChild(i).gameObject);
             }
         }
         totalEnemies = 0;
