@@ -23,12 +23,7 @@ public class EnemySpawner : MonoBehaviour
         enemyHolder.localPosition = new Vector3(enemyHolderPosX, 0, enemyHolderPosZ);
         
     }
-
-    public void TestTest()
-    {
-        Debug.Log("h");
-    }
-
+    
     public void SpawnEnemies(int count, List<GameObject> enemyTypeList)
     {
         for (int i = 0; i < count; i++)
