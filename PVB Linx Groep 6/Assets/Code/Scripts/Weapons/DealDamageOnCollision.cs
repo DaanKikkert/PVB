@@ -9,7 +9,7 @@ namespace Code.Scripts.Weapons
 
         private void Start()
         {
-            tag = this.gameObject.transform.parent.tag;
+            tag = this.gameObject.transform.tag;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -17,13 +17,31 @@ namespace Code.Scripts.Weapons
             if (tag == "Player")
             {
                 if (other.gameObject.CompareTag("Enemy"))
-                    other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
+                {
+                    GameObject getObject = other.gameObject;
+                    getObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
+                    if (getObject.GetComponent<UniversalHealth>() == null)
+                    {
+                        getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(_damage);
+                        if (getObject.GetComponentInChildren<UniversalHealth>() == null)
+                            getObject.GetComponentInParent<UniversalHealth>().TakeDamage(_damage);
+                    }
+                }
             }
 
             if (tag == "Enemy")
             {
-                if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle")) 
-                    other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
+                if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
+                {
+                    GameObject getObject = other.gameObject;
+                    getObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
+                    if (getObject.GetComponent<UniversalHealth>() == null)
+                    {
+                        getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(_damage);
+                        if (getObject.GetComponentInChildren<UniversalHealth>() == null)
+                            getObject.GetComponentInParent<UniversalHealth>().TakeDamage(_damage);
+                    }
+                }
             }
         }
 

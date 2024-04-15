@@ -26,13 +26,33 @@ public class Projectile : MonoBehaviour
         if(_attackerTag == "Player")
         {
             if (other.gameObject.CompareTag("Enemy"))
-                other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+            {
+                GameObject getObject = other.gameObject;
+                getObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+                if (getObject.GetComponent<UniversalHealth>() == null)
+                {
+                    getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(baseDamage);
+                    if (getObject.GetComponentInChildren<UniversalHealth>() == null)
+                        getObject.GetComponentInParent<UniversalHealth>().TakeDamage(baseDamage);
+                }
+                Destroy(gameObject);
+            }
         }
 
         if (_attackerTag == "Enemy")
         {
             if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
-                other.gameObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+            {
+                GameObject getObject = other.gameObject;
+                getObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
+                if (getObject.GetComponent<UniversalHealth>() == null)
+                {
+                    getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(baseDamage);
+                    if (getObject.GetComponentInChildren<UniversalHealth>() == null)
+                        getObject.GetComponentInParent<UniversalHealth>().TakeDamage(baseDamage);
+                }
+                Destroy(gameObject);
+            }
         }
     }
 

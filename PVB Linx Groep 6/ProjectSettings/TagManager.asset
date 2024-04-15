@@ -8,6 +8,7 @@ TagManager:
   - Structure
   - Castle
   - BuildSite
+  - Arrow
   layers:
   - Default
   - TransparentFX

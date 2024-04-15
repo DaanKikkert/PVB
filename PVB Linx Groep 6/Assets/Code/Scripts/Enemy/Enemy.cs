@@ -26,7 +26,7 @@ namespace Code.Scripts.Enemy
         [SerializeField] private int delay;
         [SerializeField] private int damage;
         
-        private Transform _currentTarget;
+        [SerializeField] private Transform _currentTarget;
         private bool _hasFoundPlayer;
         private bool _isWaiting;
         
@@ -131,7 +131,11 @@ namespace Code.Scripts.Enemy
                 UniversalHealth targetHealth = _currentTarget.GetComponent<UniversalHealth>();
 
                 if (targetHealth == null)
+                {
                     targetHealth = _currentTarget.GetComponentInChildren<UniversalHealth>();
+                    if (targetHealth == null)
+                        targetHealth = _currentTarget.GetComponentInParent<UniversalHealth>();
+                }
 
                 targetHealth.TakeDamage(damage);
                 yield return new WaitForSeconds(delay);
