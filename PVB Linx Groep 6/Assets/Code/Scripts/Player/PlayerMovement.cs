@@ -1,4 +1,3 @@
-using Code.Scripts.UI.Shop;
 using UnityEngine;
 
 namespace Code.Scripts.Player
