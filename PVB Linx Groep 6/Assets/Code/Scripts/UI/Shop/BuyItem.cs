@@ -1,6 +1,7 @@
 using Code.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 using Class = Code.Scripts.Player.PlayerClass;
 
 namespace Code.Scripts.UI.Shop
@@ -21,12 +22,14 @@ namespace Code.Scripts.UI.Shop
             getButton.interactable = CanPurchaseWeapon(cManager.playerClass);
         }
         
-        public void Purchase(GameObject weapon)
+        public void Purchase(Weapon purchaseWeapon)
         {
             if (CanPurchaseWeapon(cManager.playerClass))
             {
-                GameObject putAsChild = Instantiate(weapon, _getManager.currentBuyer.transform.position, _getManager.currentBuyer.transform.rotation);
-                putAsChild.transform.parent = _getManager.currentBuyer.transform;
+                Transform oldWeapon = _getManager.currentBuyer.GetComponentInChildren<PlayerAttack>().transform;
+                oldWeapon.GetComponent<PlayerAttack>().weapon.DespawnWeapon();
+                oldWeapon.GetComponent<PlayerAttack>().weapon = purchaseWeapon;
+                oldWeapon.GetComponent<PlayerAttack>().weapon.SpawnWeapon(oldWeapon);
             }
         }
 

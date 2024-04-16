@@ -524,14 +524,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 306971233}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -685,14 +685,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 453140730}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -780,8 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c324da5aa70849149804e494018ae6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTypes: 2
-  playerClass: 2
+  playerClass: 0
 --- !u!20 &477604537 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6305608970186689344, guid: bbf306bb963089c429b1a8400bb9a2b6,
@@ -959,9 +958,9 @@ MonoBehaviour:
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1400,14 +1399,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1081183492}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1761,14 +1760,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1349845759}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2355,9 +2354,9 @@ MonoBehaviour:
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2751,14 +2750,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1840073683}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2912,14 +2911,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1947630437}
+      - m_Target: {fileID: 1497131994}
         m_TargetAssemblyTypeName: Code.Scripts.UI.Shop.BuyItem, Assembly-CSharp
         m_MethodName: Purchase
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Weapons.Weapon, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
