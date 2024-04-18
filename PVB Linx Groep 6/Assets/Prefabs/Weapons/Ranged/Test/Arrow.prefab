@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4814226212173650828}
+  - component: {fileID: 5849603100986483245}
+  - component: {fileID: 7912457743761136217}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -32,6 +34,43 @@ Transform:
   - {fileID: 6626807255799527961}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5849603100986483245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360619707158332041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe51fe005955d64babd17ae0e466d25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 10
+  speed: 20
+  lifeTime: 5
+  attackerTag: Player
+--- !u!135 &7912457743761136217
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 360619707158332041}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2042751953171333599
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,10 +83,9 @@ GameObject:
   - component: {fileID: 7666890598600994122}
   - component: {fileID: 558904190597806901}
   - component: {fileID: 2923456353225577205}
-  - component: {fileID: 7168555324693591961}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Arrow
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,23 +172,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7168555324693591961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2042751953171333599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe51fe005955d64babd17ae0e466d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 10
-  speed: 5
-  lifeTime: 5
-  _attackerTag: Player
