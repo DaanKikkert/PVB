@@ -29,12 +29,6 @@ public class Projectile : MonoBehaviour
             {
                 GameObject getObject = other.gameObject;
                 getObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
-                if (getObject.GetComponent<UniversalHealth>() == null)
-                {
-                    getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(baseDamage);
-                    if (getObject.GetComponentInChildren<UniversalHealth>() == null)
-                        getObject.GetComponentInParent<UniversalHealth>().TakeDamage(baseDamage);
-                }
                 Destroy(gameObject);
             }
         }
@@ -45,12 +39,6 @@ public class Projectile : MonoBehaviour
             {
                 GameObject getObject = other.gameObject;
                 getObject.GetComponent<UniversalHealth>().TakeDamage(baseDamage);
-                if (getObject.GetComponent<UniversalHealth>() == null)
-                {
-                    getObject.GetComponentInChildren<UniversalHealth>().TakeDamage(baseDamage);
-                    if (getObject.GetComponentInChildren<UniversalHealth>() == null)
-                        getObject.GetComponentInParent<UniversalHealth>().TakeDamage(baseDamage);
-                }
                 Destroy(gameObject);
             }
         }

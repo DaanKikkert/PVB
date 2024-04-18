@@ -26,7 +26,7 @@ namespace Code.Scripts.Enemy
         [SerializeField] private int delay;
         [SerializeField] private int damage;
         
-        [SerializeField] private Transform _currentTarget;
+        private Transform _currentTarget;
         private bool _hasFoundPlayer;
         private bool _isWaiting;
         

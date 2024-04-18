@@ -11,7 +11,7 @@ namespace Code.Scripts.Structure
     {
         
         [Header("Is Searching: ")]
-        [SerializeField] [Range(0, 10)] private float range;
+        [SerializeField] private float range;
         [SerializeField] private bool hasTargeted;
         [SerializeField] private Transform currentTarget;
 
