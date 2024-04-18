@@ -7,8 +7,7 @@ namespace Code.Scripts.UI.Shop
     {
         
         [SerializeField] private GameObject shopUI;
-        public GameObject currentBuyer;
-        private bool _inRange;
+        [SerializeField] private bool _inRange;
 
         private void Awake() => shopUI.SetActive(false);
         
@@ -17,21 +16,20 @@ namespace Code.Scripts.UI.Shop
             if (Input.GetKeyDown(KeyCode.E) && _inRange)
                 shopUI.SetActive(true);
         }
-        
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Shop"))
             {
-                currentBuyer = other.gameObject;
                 _inRange = true;
             }
+                
         }
 
         private void OnTriggerExit(Collider other)
         {
             _inRange = false;
             shopUI.SetActive(false);
-            currentBuyer = null;
         }
     }
 }

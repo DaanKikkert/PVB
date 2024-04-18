@@ -1,5 +1,6 @@
 using Code.Scripts.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Weapons;
 using Class = Code.Scripts.Player.PlayerClass;
@@ -12,13 +13,11 @@ namespace Code.Scripts.UI.Shop
 
         public ClassManager cManager;
         [SerializeField] private PlayerClass allowedClass;
-        private InteractionShop _getManager;
+        [SerializeField] private Transform weaponHolder;
 
         private void Start()
         {
             Button getButton = GetComponent<Button>();
-            _getManager = GetComponentInParent<InteractionShop>();
-            cManager = _getManager.currentBuyer.GetComponentInParent<ClassManager>();
             getButton.interactable = CanPurchaseWeapon(cManager.playerClass);
         }
         
@@ -26,10 +25,9 @@ namespace Code.Scripts.UI.Shop
         {
             if (CanPurchaseWeapon(cManager.playerClass))
             {
-                Transform oldWeapon = _getManager.currentBuyer.GetComponentInChildren<PlayerAttack>().transform;
-                oldWeapon.GetComponent<PlayerAttack>().weapon.DespawnWeapon();
-                oldWeapon.GetComponent<PlayerAttack>().weapon = purchaseWeapon;
-                oldWeapon.GetComponent<PlayerAttack>().weapon.SpawnWeapon(oldWeapon);
+                weaponHolder.GetComponent<PlayerAttack>().weapon.DespawnWeapon();
+                weaponHolder.GetComponent<PlayerAttack>().weapon = purchaseWeapon;
+                weaponHolder.GetComponent<PlayerAttack>().weapon.SpawnWeapon(weaponHolder);
             }
         }
 
