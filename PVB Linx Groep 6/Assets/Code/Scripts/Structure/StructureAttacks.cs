@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,6 +20,8 @@ namespace Code.Scripts.Structure
         [SerializeField] private Weapon getWeapon;
         
         private bool _waitForNextProjectile;
+
+        private void Awake() => getWeapon.SpawnWeapon(transform);
 
         // Update is called once per frame
         private void Update()
@@ -63,7 +66,6 @@ namespace Code.Scripts.Structure
             {
                 _waitForNextProjectile = true;
                 StartCoroutine(Wait(getWeapon.attackDelay));
-                getWeapon.SpawnWeapon(transform);
                 transform.LookAt(currentTarget);
                 getWeapon.setAttackDirection(transform.rotation, transform.position);
                 getWeapon.Attack();
