@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Structure
   - Castle
+  - Shop
   layers:
   - Default
   - TransparentFX
