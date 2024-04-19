@@ -131,11 +131,7 @@ namespace Code.Scripts.Enemy
                 UniversalHealth targetHealth = _currentTarget.GetComponent<UniversalHealth>();
 
                 if (targetHealth == null)
-                {
                     targetHealth = _currentTarget.GetComponentInChildren<UniversalHealth>();
-                    if (targetHealth == null)
-                        targetHealth = _currentTarget.GetComponentInParent<UniversalHealth>();
-                }
 
                 targetHealth.TakeDamage(damage);
                 yield return new WaitForSeconds(delay);
