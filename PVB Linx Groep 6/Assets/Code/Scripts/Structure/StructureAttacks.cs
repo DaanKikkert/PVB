@@ -13,8 +13,8 @@ namespace Code.Scripts.Structure
         
         [Header("Is Searching: ")]
         [SerializeField] private float range;
-        [SerializeField] private bool hasTargeted;
-        [SerializeField] private Transform currentTarget;
+        private bool _hasTargeted;
+        private Transform _currentTarget;
 
         [Header("Is Attacking: ")] 
         [SerializeField] private Weapon getWeapon;
@@ -26,19 +26,19 @@ namespace Code.Scripts.Structure
         // Update is called once per frame
         private void Update()
         {
-            if (currentTarget == null || !IsTargetInRange(currentTarget))
+            if (_currentTarget == null || !IsTargetInRange(_currentTarget))
             {
-                hasTargeted = false;
+                _hasTargeted = false;
                 FindNewTarget();
             }
 
-            if (currentTarget != null && !_waitForNextProjectile)
+            if (_currentTarget != null && !_waitForNextProjectile)
                 Attack();
         }
 
         private void FindNewTarget()
         {
-            if (!hasTargeted)
+            if (!_hasTargeted)
             {
                 Collider[] colliders = Physics.OverlapSphere(transform.position, range);
                 foreach (Collider vCollider in colliders)
@@ -46,8 +46,8 @@ namespace Code.Scripts.Structure
                     // ReSharper disable once InvertIf
                     if (vCollider.CompareTag("Enemy"))
                     {
-                        currentTarget = vCollider.transform;
-                        hasTargeted = true;
+                        _currentTarget = vCollider.transform;
+                        _hasTargeted = true;
                         break;
                     }
                 }
@@ -66,7 +66,7 @@ namespace Code.Scripts.Structure
             {
                 _waitForNextProjectile = true;
                 StartCoroutine(Wait(getWeapon.attackDelay));
-                transform.LookAt(currentTarget);
+                transform.LookAt(_currentTarget);
                 getWeapon.setAttackDirection(transform.rotation, transform.position);
                 getWeapon.Attack();
             }
