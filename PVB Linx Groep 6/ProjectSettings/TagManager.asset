@@ -9,6 +9,7 @@ TagManager:
   - Castle
   - BuildSite
   - Arrow
+  - Shop
   layers:
   - Default
   - TransparentFX
