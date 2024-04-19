@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Structure
   - Castle
+  - BuildSite
+  - Arrow
   - Shop
   layers:
   - Default
