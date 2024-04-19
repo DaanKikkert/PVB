@@ -147,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528996462095300729}
   - component: {fileID: 9161440033294705123}
-  - component: {fileID: 7660087889061278553}
+  - component: {fileID: 4596817189148715803}
   m_Layer: 0
   m_Name: PlayerWeapon
   m_TagString: Untagged
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 1135855077752518218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5393357, y: 1.23, z: 3.6762822}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -185,36 +185,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  rb: {fileID: 7660087889061278553}
+  characterController: {fileID: 4596817189148715803}
   body: {fileID: 8495364153605354353}
   playerCamera: {fileID: 6305608970186689344}
---- !u!54 &7660087889061278553
-Rigidbody:
+  ignoredLayers:
+    serializedVersion: 2
+    m_Bits: 12
+--- !u!143 &4596817189148715803
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135855077752518218}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5138233529586143448
 GameObject:
   m_ObjectHideFlags: 0
