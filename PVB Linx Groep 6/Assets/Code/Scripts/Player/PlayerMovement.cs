@@ -10,6 +10,12 @@ public class BasicMovement : MonoBehaviour
     [SerializeField]private Transform body;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private Animator playerAnim;
+    private Vector3 _dirVector;
+
+    public Vector3 GetDirection()
+    {
+        return _dirVector;
+    }
 
     private void Awake()
     {
@@ -25,11 +31,11 @@ public class BasicMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
+        _dirVector = new Vector3(horizontalInput,0f ,  verticalInput);
         
-        rb.MovePosition((Vector3)transform.position + (direction * (moveSpeed * Time.deltaTime)));
+        rb.MovePosition((Vector3)transform.position + (_dirVector * (moveSpeed * Time.deltaTime)));
 
-        if (direction.magnitude > 0.01f)
+        if (_dirVector.magnitude > 0.01f)
         {
             playerAnim.SetBool("IsWalking", true);
             playerAnim.SetBool("IsRunning", false);
