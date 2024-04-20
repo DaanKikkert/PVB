@@ -9,11 +9,11 @@ public class FaceCamera : MonoBehaviour
 
     private void Start()
     {
-        mainCamera = GameObject.FindWithTag("MainCamera");
+        //ainCamera = GameObject.FindWithTag("MainCamera");
     }
 
     void Update()
     {
-        transform.LookAt(mainCamera.transform);
+        transform.LookAt(Camera.main.transform);
     }
 }
