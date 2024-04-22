@@ -24,16 +24,12 @@ namespace Code.Scripts
         public IEnumerator ResetWithDelay()
         {
             _isResseting = true;
-            baseHealth.gameObject.SetActive(false); 
+            baseHealth.gameObject.SetActive(false);
             yield return StartCoroutine(FadeEffect.FadeIn(image, time/2));
             if (WaveManager.instance != null)
-            {
                 WaveManager.instance.ClearWave(1);
-            }
-            
-            baseHealth.gameObject.SetActive(true); 
-           //BASEHEALTH DOESN'T HAVE A SETTER. HOTFIX REQUIRED.
-            baseHealth.HealHealth(20000);
+            baseHealth.gameObject.SetActive(true);
+            baseHealth.SetCurrentHealt(baseHealth.GetMaxHealth());
             onReset.Invoke();
             yield return StartCoroutine(FadeEffect.FadeOut(image, time/2));
             _isResseting = false;

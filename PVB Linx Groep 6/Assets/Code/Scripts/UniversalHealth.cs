@@ -10,7 +10,6 @@ namespace Code.Scripts
         public UnityEvent onDeath;
         
         public bool isFullHealth = true;
-
         private int _currentHealth;
         private bool _didDamage = false;
         private Transform _currentTransform;
@@ -19,7 +18,11 @@ namespace Code.Scripts
         {
             return _maxHealth;
         }
-
+        public void SetMaxHealth(int maxHealth)
+        {
+           
+            _maxHealth = maxHealth;
+        }
         public int GetCurrentHealth()
         {
             return _currentHealth;
@@ -28,6 +31,7 @@ namespace Code.Scripts
         public void SetCurrentHealt(int health)
         {
             _currentHealth = health;
+            onHealthChange.Invoke();
         }
         
         private void Awake()
