@@ -3,12 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Structure
+  - Castle
+  - BuildSite
+  - Arrow
+  - Shop
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Navmesh Ignore
   - Water
   - UI
   - 

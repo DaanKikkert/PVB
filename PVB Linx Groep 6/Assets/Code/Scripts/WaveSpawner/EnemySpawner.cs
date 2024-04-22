@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code.Scripts;
 using Unity.Mathematics;
+using UnityEditor.Events;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
 {
    
     [SerializeField] private Transform zone;
-    [SerializeField] private Transform enemyHolder;
+    public Transform enemyHolder;
     private Vector2 _zoneSize;
 
     private void Awake()
@@ -21,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
         enemyHolder.localPosition = new Vector3(enemyHolderPosX, 0, enemyHolderPosZ);
         
     }
-
+    
     public void SpawnEnemies(int count, List<GameObject> enemyTypeList)
     {
         for (int i = 0; i < count; i++)
@@ -30,6 +32,8 @@ public class EnemySpawner : MonoBehaviour
             float enemySpawnPositionX = Random.Range(0, _zoneSize.x);
             float enemySpawnPositionY = Random.Range(0, _zoneSize.y);
             GameObject enemy = Instantiate(enemyTypeList[enemyType], enemyHolder);
+            UniversalHealth health = enemy.GetComponent<UniversalHealth>();
+            UnityEventTools.AddPersistentListener(health.onDeath, WaveManager.instance.CheckForNewWave);
             enemy.transform.localPosition = new Vector3(enemySpawnPositionX, 1, enemySpawnPositionY);
         }
     }
