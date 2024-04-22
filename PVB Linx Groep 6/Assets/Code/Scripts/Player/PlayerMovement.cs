@@ -6,20 +6,13 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    [SerializeField]private Rigidbody rb;
+    [SerializeField]private CharacterController characterController;
     [SerializeField]private Transform body;
     [SerializeField] private Camera playerCamera;
-    [SerializeField] private Animator playerAnim;
-    private Vector3 _dirVector;
-
-    public Vector3 GetDirection()
-    {
-        return _dirVector;
-    }
-
+    [SerializeField] private LayerMask ignoredLayers;
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
     }
 
     void FixedUpdate()
@@ -31,20 +24,8 @@ public class BasicMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        _dirVector = new Vector3(horizontalInput,0f ,  verticalInput);
-        
-        rb.MovePosition((Vector3)transform.position + (_dirVector * (moveSpeed * Time.deltaTime)));
-
-        if (_dirVector.magnitude > 0.01f)
-        {
-            playerAnim.SetBool("IsWalking", true);
-            playerAnim.SetBool("IsRunning", false);
-        }
-        else
-        {
-            playerAnim.SetBool("IsWalking", false);
-            playerAnim.SetBool("IsRunning", false);
-        }
+        Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
+        characterController.Move(direction);
     }
     
     private void HandlePlayerTurning()
@@ -62,7 +43,7 @@ public class BasicMovement : MonoBehaviour
     private (bool success, Vector3 position) GetMousePosition()
     {
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity))
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, ~ignoredLayers))
             return (success: true, position: hitInfo.point);
         
         else
