@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class WaveCounter : MonoBehaviour
 {
-    [SerializeField] private Text waveCounterText;
-    [SerializeField] private Text enemyCounterText;
+    [SerializeField] private TextMeshProUGUI waveCounterText;
+    [SerializeField] private TextMeshProUGUI enemyCounterText;
     
     public WaveManager waveManager;
     
