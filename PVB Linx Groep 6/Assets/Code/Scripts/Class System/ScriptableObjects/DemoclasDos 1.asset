@@ -18,5 +18,5 @@ MonoBehaviour:
   classModel: {fileID: 4618818556454921151, guid: 55d89bb58fd9d5741a392aceeb3841b3,
     type: 3}
   classBaseSpeed: 0
-  classBaseHp: 0
+  classBaseHp: 123123123
   classType: 2

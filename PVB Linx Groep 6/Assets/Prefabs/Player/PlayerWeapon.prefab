@@ -148,6 +148,8 @@ GameObject:
   - component: {fileID: 1528996462095300729}
   - component: {fileID: 9161440033294705123}
   - component: {fileID: 4596817189148715803}
+  - component: {fileID: 4810758650933142038}
+  - component: {fileID: 8287594478572120329}
   m_Layer: 0
   m_Name: PlayerWeapon
   m_TagString: Untagged
@@ -168,8 +170,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2559255278410368928}
   - {fileID: 8495364153605354353}
+  - {fileID: 2559255278410368928}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9161440033294705123
@@ -217,6 +219,39 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4810758650933142038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135855077752518218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9285c4b2514d1e846b068b1152709a14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerClass: 0
+--- !u!114 &8287594478572120329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135855077752518218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa26d39fa55c7649bc268e86bff3bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 0
+  onHealthChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  isFullHealth: 1
 --- !u!1 &5138233529586143448
 GameObject:
   m_ObjectHideFlags: 0

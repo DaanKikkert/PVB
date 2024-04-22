@@ -22,7 +22,7 @@ public class ClassvisualHolder : MonoBehaviour
         backGround = BG;
         icon.sprite = thisClassBase.classIcon;
         title.text = thisClassBase.classTitle;
-        description.text = thisClassBase.classTitle;
+        description.text = thisClassBase.classDescription;
         UnityEventTools.AddPersistentListener(button.onClick,LoadClassIntoPlayer);
     }
 
