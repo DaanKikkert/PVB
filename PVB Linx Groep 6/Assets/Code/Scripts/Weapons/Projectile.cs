@@ -24,7 +24,6 @@ public class Projectile : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.tag);
         if(attackerTag == "Player")
         {
             if (other.gameObject.CompareTag("Enemy"))
