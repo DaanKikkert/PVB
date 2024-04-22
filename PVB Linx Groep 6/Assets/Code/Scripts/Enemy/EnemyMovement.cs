@@ -13,16 +13,13 @@ public class EnemyMovement : MonoBehaviour
     [Tooltip("The distance the enemy stops from its target")]
     [SerializeField] private float stopDistance = 10f;
     
-    [Tooltip("The delay between checks for target position")]
-    [SerializeField] private float updateDelay = 0.2f;
-    
     [Tooltip("The time an enemy waits before stopping when conditions are met, to avoid it getting caught behind corners")]
     [SerializeField] private float stopDelay = 0.2f;
 
     [Tooltip("How quickly the enemy should rotate towards its target")]
     [SerializeField] private float lookSpeed = 5f;
     
-    [SerializeField] private EnemyReferences references;
+    private EnemyReferences _references;
     
     private Vector3 _targetPosition;
     private NavMeshAgent _navMeshAgent;
@@ -41,7 +38,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        _targetTransform = references.mainBase.transform;
+        _references = GetComponent<EnemyReferences>();
+        _targetTransform = _references.mainBase.transform;
         _targetPosition = _targetTransform.position;
         _navMeshAgent.enabled = true;
         _navMeshAgent.speed = moveSpeed;
@@ -52,53 +50,46 @@ public class EnemyMovement : MonoBehaviour
         if (!_navMeshAgent.enabled)
             return;
 
-        if (_isChasingTarget)
-            UpdateTarget();
-        
-
         targetDistance = Vector3.Distance(_targetPosition, transform.position);
         if (targetDistance <= stopDistance) 
             FaceTarget();
         else
         {
+            _references.animator.SetBool("IsMoving", true);
             _isChasingTarget = true;
             isInRange = false;
         }
     }
 
-    void UpdateTarget()
-    {
-        _timer += Time.deltaTime;
-        if (_timer >= updateDelay)
-        {
-            _targetPosition = _targetTransform.position;
-            _navMeshAgent.destination = _targetPosition; 
-            _timer = 0f;
-        }
-    }
-
-    public void CheckLineOfSight()
+    private void CheckLineOfSight()
     {
         _targetPosition = _targetTransform.position;
+        
+        //Hardcoded for a good reason, this is to avoid the error of the layermask not being set correctly in the inspector.
+        int layer = 7;
+        int layerMask = 1 << layer;
+        
         RaycastHit hit;
-        bool canSeePlayer = Physics.Raycast(transform.position, _targetTransform.position - transform.position, out hit);
+        Physics.Raycast(transform.position, _targetTransform.position - transform.position, out hit, Mathf.Infinity, ~layerMask);
         Debug.DrawRay(transform.position, _targetTransform.position - transform.position, Color.red);
         
         if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
         {
+            _references.animator.SetBool("IsMoving", false);
             _isChasingTarget = false;
             StartCoroutine(StopMove(stopDelay));
             isInRange = true;
         }
         else
         {
+            _references.animator.SetBool("IsMoving", true);
             _isChasingTarget = true;
             isInRange = false;
         }
         
     }
 
-    public void FaceTarget()
+    private void FaceTarget()
     {
         CheckLineOfSight();
         var targetRotation = Quaternion.LookRotation(_targetTransform.position - transform.position);

@@ -7,19 +7,20 @@ public class EnemyAttack : MonoBehaviour
 
     [SerializeField] private GameObject spawnPoint;
 
-    [SerializeField] private EnemyReferences enemyReferences;
+    private EnemyReferences _references;
     
     private float _attackTimer;  
 
     private void Start()
     {
+        _references = GetComponentInParent<EnemyReferences>();
         weapon.SpawnWeapon(spawnPoint.transform);
     }
 
     private void Update()
     {
         _attackTimer -= Time.deltaTime;
-        if (enemyReferences.movement.isInRange)
+        if (_references.movement.isInRange)
             Attack();
     }
 
@@ -27,9 +28,11 @@ public class EnemyAttack : MonoBehaviour
     {
         if (_attackTimer <= 0f)
         {
+            _references.animator.ResetTrigger("Attack");
             weapon.setAttackDirection(spawnPoint.transform.rotation, spawnPoint.transform.position);
             weapon.Attack();
             _attackTimer = weapon.attackDelay;
+            _references.animator.SetTrigger("Attack");
         }
     }
 }

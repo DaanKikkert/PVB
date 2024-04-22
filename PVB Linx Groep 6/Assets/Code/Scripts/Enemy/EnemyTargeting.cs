@@ -1,23 +1,36 @@
+using System;
 using UnityEngine;
 
 public class EnemyTargeting : MonoBehaviour
 {
     public float detectionRadius = 10f;
-
+    
+    [Tooltip("The delay between checks for target position")]
     [SerializeField] private float updateDelay = 0.2f;
     
-    [SerializeField] private EnemyReferences _enemyReferences;
-        
+    [Tooltip("Set this to false if you never want the enemy to target the player")]
+    [SerializeField] private bool _targetsPlayer = true;
+
     [SerializeField] private LayerMask _playerLayer;
     
     private Transform _enemyTarget;
 
+    private EnemyReferences _references;
+    
     private float _timer;
+
+    private void Start()
+    {
+        _references = GetComponent<EnemyReferences>();
+    }
 
     private void Update()
     {
-        DetectPlayers();
-        UpdateTarget();
+        if (_targetsPlayer)
+        {
+            DetectPlayers();
+            UpdateTarget();
+        }
     }
 
     private void DetectPlayers()
@@ -54,7 +67,7 @@ public class EnemyTargeting : MonoBehaviour
 
     private void ResetTargetToMainBase()
     {
-        _enemyTarget = _enemyReferences.mainBase.transform;
+        _enemyTarget = _references.mainBase.transform;
     }
 
     private void UpdateTarget()
@@ -62,7 +75,7 @@ public class EnemyTargeting : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= updateDelay)
         {
-            _enemyReferences.movement.SetTarget(_enemyTarget);
+            _references.movement.SetTarget(_enemyTarget);
             _timer = 0f;
         }
     }
