@@ -12,7 +12,7 @@ public class ClassInitializer : MonoBehaviour
 {
     [SerializeField] private string path;
     [SerializeField] private RectTransform classVisual;
-    [SerializeField] private CanvasGroup BG;
+    [SerializeField] private CanvasGroup backGround;
     private List<ClassBase> _classes = new List<ClassBase>();
 
     private void Awake()
@@ -39,7 +39,7 @@ public class ClassInitializer : MonoBehaviour
             ClassvisualHolder visualSetter = classItem.gameObject.GetComponent<ClassvisualHolder>();
             if (visualSetter != null)
             {
-                visualSetter.SetClassValues(currClass, BG);
+                visualSetter.SetClassValues(currClass, backGround);
             } 
                 
         }
