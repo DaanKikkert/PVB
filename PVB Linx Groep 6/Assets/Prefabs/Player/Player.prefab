@@ -665,7 +665,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3766393283066204761}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 9c20b4b9d2c6394429aff2562a57e103, type: 3}
   m_Controller: {fileID: 9100000, guid: ca99c52a05ae2fe46b7afed010b62747, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -820,6 +820,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07, type: 2}
   playerAttackAnim: {fileID: 6935448628064446796}
   spawnPoint: {fileID: 5709068967635605752}
+  getVector: {fileID: 0}
 --- !u!1 &5810737016913013840
 GameObject:
   m_ObjectHideFlags: 0

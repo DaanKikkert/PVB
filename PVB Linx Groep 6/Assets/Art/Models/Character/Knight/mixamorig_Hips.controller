@@ -123,6 +123,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: IsAttacking
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: IsWalking
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5073672098597299730}
   m_Solo: 0
@@ -180,7 +183,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Base Layer
     m_StateMachine: {fileID: 9187470769192808644}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 1c9bb928c1fa9064e95e3ad19417f15b, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -192,7 +195,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: AttackWalk
     m_StateMachine: {fileID: 6862068043848880806}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: fe2db2b8311cbc344b0b0d3eac24681d, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -211,6 +214,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: IsAttacking
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsWalking
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6525146960262592692}
