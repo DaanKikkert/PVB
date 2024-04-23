@@ -1,28 +1,28 @@
 using Code.Scripts;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Code.UI;
 using TMPro;
 using UnityEditor.Events;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ClassvisualHolder : MonoBehaviour
 {
+    public Button button;
+    
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI title;
     [SerializeField] private TextMeshProUGUI description;
-    public Button button;
-    private ClassBase thisClassBase;
-    CanvasGroup backGround;
+    
+    private ClassBase _thisClassBase;
+    private CanvasGroup _backGround;
+    
     public void SetClassValues(ClassBase classData, CanvasGroup BG)
     {
-        thisClassBase = classData;
-        backGround = BG;
-        icon.sprite = thisClassBase.classIcon;
-        title.text = thisClassBase.classTitle;
-        description.text = thisClassBase.classDescription;
+        _thisClassBase = classData;
+        _backGround = BG;
+        icon.sprite = _thisClassBase.classIcon;
+        title.text = _thisClassBase.classTitle;
+        description.text = _thisClassBase.classDescription;
         UnityEventTools.AddPersistentListener(button.onClick,LoadClassIntoPlayer);
     }
 
@@ -32,14 +32,15 @@ public class ClassvisualHolder : MonoBehaviour
         WaveManager.instance.playerCount++;
         WaveManager.instance.CheckForNewWave();
         GameObject player = PlayerRespawnManager.instance.returnHostPlayer();
-        player.GetComponent<PlayerInfo>().playerClass = thisClassBase.classType;
+        player.GetComponent<PlayerInfo>().playerClass = _thisClassBase.classType;
         BasicMovement playerMovement = player.GetComponent<BasicMovement>();
-        playerMovement.moveSpeed = thisClassBase.classBaseSpeed;//Level bonus?
+        playerMovement.moveSpeed = _thisClassBase.classBaseSpeed;//Level bonus?
         playerMovement.enabled = true;
-        player.GetComponent<UniversalHealth>().SetMaxHealth(thisClassBase.classBaseHp);//level bonus?
-        player.transform.GetChild(0).GetComponent<MeshFilter>().mesh = thisClassBase.classModel;
-        StartCoroutine(FadeEffect.FadeOut(backGround, 2));
-        backGround.gameObject.SetActive(false);
+        UniversalHealth health = player.GetComponent<UniversalHealth>();
+        health.SetMaxHealth(_thisClassBase.classBaseHp);//level bonus?
+        player.transform.GetChild(0).GetComponent<MeshFilter>().mesh = _thisClassBase.classModel;
+        StartCoroutine(FadeEffect.FadeOut(_backGround, 2));
+        _backGround.gameObject.SetActive(false);
     }
 
 

@@ -33,7 +33,6 @@ public class EnemyTargeting : MonoBehaviour
         {
             DetectPlayers();
             UpdateTarget();
-            GetNearestTargetPosition(_enemyTarget);
         }
     }
 
@@ -69,16 +68,6 @@ public class EnemyTargeting : MonoBehaviour
         _enemyTarget = nearestPlayer;
     }
 
-    private void GetNearestTargetPosition(Transform target)
-    {
-        int layerA = 6; 
-        int layerB = 8;
-        int layerMask = (1 << layerA) | (1 << layerB);
-        RaycastHit hit;
-        Physics.Raycast(transform.position, target.position - transform.position, out hit, Mathf.Infinity, layerMask);
-        _targetPosition.position = hit.point;
-    }
-
     private void ResetTargetToMainBase()
     {
         _enemyTarget = _references.mainBase.transform;
@@ -89,7 +78,7 @@ public class EnemyTargeting : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer >= updateDelay)
         {
-            _references.movement.SetTarget(_targetPosition);
+            _references.movement.SetTarget(_enemyTarget);
             _timer = 0f;
         }
     }
