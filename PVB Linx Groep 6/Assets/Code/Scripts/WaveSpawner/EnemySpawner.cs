@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             int enemyType = Random.Range(0, enemyTypeList.Count);
             float enemySpawnPositionX = Random.Range(0, _zoneSize.x);
             float enemySpawnPositionY = Random.Range(0, _zoneSize.y);
-            GameObject enemy = Instantiate(enemyTypeList[enemyType], enemyHolder);
+            GameObject enemy = Instantiate(enemyTypeList[enemyType], enemyHolder, false);
             UniversalHealth health = enemy.GetComponent<UniversalHealth>();
             UnityEventTools.AddPersistentListener(health.onDeath, WaveManager.instance.CheckForNewWave);
             enemy.transform.localPosition = new Vector3(enemySpawnPositionX, 1, enemySpawnPositionY);
