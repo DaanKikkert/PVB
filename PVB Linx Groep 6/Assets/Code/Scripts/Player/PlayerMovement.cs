@@ -25,7 +25,7 @@ public class BasicMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
-        characterController.Move(direction);
+        characterController.Move(direction * (moveSpeed * Time.deltaTime));
     }
     
     private void HandlePlayerTurning()

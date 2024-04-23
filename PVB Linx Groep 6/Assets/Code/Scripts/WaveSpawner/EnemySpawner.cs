@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        _zoneSize.x = zone.localScale.x;
-        _zoneSize.y = zone.localScale.z;
+        _zoneSize.x = zone.lossyScale.x;
+        _zoneSize.y = zone.lossyScale.z;
         float enemyHolderPosX = (_zoneSize.x / 2) * -1;
         float enemyHolderPosZ = (_zoneSize.y / 2) * -1;
         enemyHolder.localPosition = new Vector3(enemyHolderPosX, 0, enemyHolderPosZ);
