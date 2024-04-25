@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: MeleeWeapon1
   m_EditorClassIdentifier: 
   damage: 10
-  attackDelay: 0.2
-  weaponModel: {fileID: 2614041671604885972, guid: e1ac302b252da1344a02793875f1df53,
+  attackDelay: 1
+  tag: []
+  weaponModel: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
     type: 3}
   hitBoxDuration: 0.2
   hitboxOffset: 0
