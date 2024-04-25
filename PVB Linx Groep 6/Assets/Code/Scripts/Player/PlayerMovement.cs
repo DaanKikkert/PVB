@@ -27,7 +27,7 @@ public class BasicMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         
         //Ugly fix for an issue causing the player to be moved up, needs to be changed
-        //gameObject.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        gameObject.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
         
         Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
         characterController.Move(direction * (moveSpeed * Time.deltaTime));

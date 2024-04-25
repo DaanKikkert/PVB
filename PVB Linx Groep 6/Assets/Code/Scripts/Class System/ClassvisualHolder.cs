@@ -1,7 +1,6 @@
 using Code.Scripts;
 using Code.UI;
 using TMPro;
-using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.UI;
 using Weapons;
@@ -24,7 +23,8 @@ public class ClassvisualHolder : MonoBehaviour
         icon.sprite = _thisClassBase.classIcon;
         title.text = _thisClassBase.classTitle;
         description.text = _thisClassBase.classDescription;
-        UnityEventTools.AddPersistentListener(button.onClick,LoadClassIntoPlayer);
+       // UnityEventTools.AddPersistentListener(button.onClick,LoadClassIntoPlayer);
+       button.onClick.AddListener(LoadClassIntoPlayer);
     }
 
 

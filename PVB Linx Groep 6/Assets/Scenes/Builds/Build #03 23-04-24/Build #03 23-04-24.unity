@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.6404445, g: 0.42939675, b: 0.38585588, a: 1}
+  m_IndirectSpecularColor: {r: 0.640563, g: 0.42944288, b: 0.3858773, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -518,6 +518,28 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8207561221832357823, guid: b151f61dda6453d478e1ce4f7d55f52d,
+        type: 3}
+      propertyPath: path
+      value: classes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207561221832357823, guid: b151f61dda6453d478e1ce4f7d55f52d,
+        type: 3}
+      propertyPath: madeClasses.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207561221832357823, guid: b151f61dda6453d478e1ce4f7d55f52d,
+        type: 3}
+      propertyPath: madeClasses.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 66335c7190f9fb24b85ca05c343e008d,
+        type: 2}
+    - target: {fileID: 8207561221832357823, guid: b151f61dda6453d478e1ce4f7d55f52d,
+        type: 3}
+      propertyPath: madeClasses.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 39404ddee55380c43aef142f546afc96,
+        type: 2}
     - target: {fileID: 8503862672052070411, guid: b151f61dda6453d478e1ce4f7d55f52d,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11420,7 +11442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa26d39fa55c7649bc268e86bff3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 25
+  _maxHealth: 500
   onHealthChange:
     m_PersistentCalls:
       m_Calls:
@@ -15589,6 +15611,7 @@ MonoBehaviour:
   - {fileID: 2099672857}
   playerPrefab: {fileID: 3395185640471891725, guid: 4d0ab62c0be759f47af69abea7737d59,
     type: 3}
+  cg: {fileID: 158459174}
 --- !u!1 &1986188776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5980231204331645246, guid: 800e81462ca292f4a81ed07b8232115c,

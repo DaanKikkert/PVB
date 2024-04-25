@@ -35,6 +35,8 @@ namespace Code.Scripts
             _isResseting = true;
             baseHealth.gameObject.SetActive(false);
             yield return StartCoroutine(FadeEffect.FadeIn(image, time/2));
+            var player = PlayerRespawnManager.instance.returnHostPlayer();
+            player.GetComponent<UniversalHealth>().SetCurrentHealt(100);
             baseHealth.gameObject.SetActive(true);
             if (WaveManager.instance != null)
                 WaveManager.instance.ClearWave(1);
