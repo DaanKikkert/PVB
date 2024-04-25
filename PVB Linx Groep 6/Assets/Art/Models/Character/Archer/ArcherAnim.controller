@@ -336,13 +336,13 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: AttackWalk
     m_StateMachine: {fileID: -8343821008391109022}
-    m_Mask: {fileID: 31900000, guid: a7917f1c8607f6b4b8ce679205435214, type: 2}
+    m_Mask: {fileID: 31900000, guid: fe2db2b8311cbc344b0b0d3eac24681d, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 0
     m_DefaultWeight: 0
-    m_IKPass: 0
+    m_IKPass: 1
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 --- !u!1101 &1407591507490229980
