@@ -12,7 +12,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private int baseEnemyCount = 20;
     [SerializeField] private float baseMultiplier = 1.3f;
     [SerializeField] private UnityEvent updateUI;
-    
+    private bool _waveIsPlaying;
     public int wave;
     public static WaveManager instance;
     
@@ -24,31 +24,36 @@ public class WaveManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        NewWave();
     }
 
     private void Start()
     {
-        CheckForNewWave();
         updateUI.Invoke();
     }
     public void CheckForNewWave()
     {
         _totalEnemies--;
         if (_totalEnemies <= 0)
+        {
+            _waveIsPlaying = false;
             NewWave();
+        }
         updateUI.Invoke();
     }
 
     public void NewWave()
     {
-        wave++;
-        foreach (EnemySpawner spawner in spawners)
+        if(!_waveIsPlaying) 
         {
-            spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
-        }
-        _totalEnemies = CalculateEnemyCount() * 4;
-        updateUI.Invoke();
+            wave++;
+            foreach (EnemySpawner spawner in spawners)
+            {
+                spawner.SpawnEnemies(CalculateEnemyCount(), enemyPrefabs);
+            }
+            _totalEnemies = CalculateEnemyCount() * spawners.Count;
+            updateUI.Invoke();
+            _waveIsPlaying = true;
+        }      
     }
 
     private int CalculateEnemyCount()
@@ -59,11 +64,12 @@ public class WaveManager : MonoBehaviour
 
     public void ClearWave(int goToWave)
     {
+        _waveIsPlaying=false;
         foreach (EnemySpawner spawner in spawners)
         {
             for (int i = 0; i < spawner.enemyHolder.transform.childCount; i++)
             {
-                Destroy(spawner.enemyHolder.transform.GetChild(i));
+                Destroy(spawner.enemyHolder.transform.GetChild(i).gameObject);
             }
         }
         _totalEnemies = 0;

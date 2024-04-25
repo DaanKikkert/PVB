@@ -12,11 +12,17 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] private Transform playerHolder;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private GameObject playerPrefab;
+    public static PlayerRespawnManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
         //WILL BE EDITED WHEN SERVERS IS RUNNING. SERVER.PLAYERCOUNT WILL REPLACE 4.
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 1; i++)
         {
             SpawnAtRandomPoint();
         }
@@ -37,4 +43,11 @@ public class PlayerRespawnManager : MonoBehaviour
         Instantiate(playerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
 
     }
+
+    public GameObject returnHostPlayer()
+    {
+        //WILL BE EDITED ONCE NETWORK IS DONE.
+        return playerHolder.GetChild(0).gameObject;
+    }
+
 }
