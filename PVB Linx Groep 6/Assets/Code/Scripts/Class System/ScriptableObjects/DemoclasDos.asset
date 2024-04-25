@@ -15,8 +15,9 @@ MonoBehaviour:
   classTitle: Ranger
   classDescription: 
   classIcon: {fileID: 21300000, guid: e0e5575ea34bfe4438557005fc384453, type: 3}
-  classModel: {fileID: 8674484015520534224, guid: 9c20b4b9d2c6394429aff2562a57e103,
+  classModel: {fileID: 8896978414419726808, guid: 8c772c10ac0eca04ea1a0c19642f72da,
     type: 3}
   classBaseSpeed: 5
   classBaseHp: 100
   classType: 1
+  weapon: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b, type: 2}

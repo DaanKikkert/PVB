@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.UI;
+using Weapons;
 
 public class ClassvisualHolder : MonoBehaviour
 {
@@ -38,7 +39,12 @@ public class ClassvisualHolder : MonoBehaviour
         playerMovement.enabled = true;
         UniversalHealth health = player.GetComponent<UniversalHealth>();
         health.SetMaxHealth(_thisClassBase.classBaseHp);//level bonus?
-        player.transform.GetChild(0).GetComponent<MeshFilter>().mesh = _thisClassBase.classModel;
+        Instantiate(_thisClassBase.classModel, player.transform);
+        PlayerInfo playerInfo = player.GetComponent<PlayerInfo>();
+        playerInfo.attackScript.weapon = _thisClassBase.weapon;
+        playerInfo.attackScript.weapon.SpawnWeapon(playerInfo.weaponSpawnPoint);
+        
+        //player.transform.GetChild(0).GetComponent<MeshFilter>().mesh = _thisClassBase.classModel;
         StartCoroutine(FadeEffect.FadeOut(_backGround, 2));
         _backGround.gameObject.SetActive(false);
     }
