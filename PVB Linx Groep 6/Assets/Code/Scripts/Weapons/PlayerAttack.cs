@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        weapon.SpawnWeapon(spawnPoint.transform);
+        
     }
 
     private void Update()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Code.Scripts;
 using Unity.Mathematics;
+using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -30,18 +31,18 @@ public class PlayerRespawnManager : MonoBehaviour
 
     public void ResetPlayerWithinSpawnPoints()
     {
-        for (int i = 0; i < playerHolder.childCount; i++)
-        {
             int randomIndex = Random.Range(0, spawnPoints.Length);
-            playerHolder.GetChild(i).position = spawnPoints[randomIndex].position;
-        }
+            GameObject player = playerHolder.GetChild(0).gameObject;
+            player.GetComponent<CharacterController>().enabled = false;
+            playerHolder.GetChild(0).position = spawnPoints[randomIndex].position;
+            player.GetComponent<CharacterController>().enabled = true;
     }
 
     public void SpawnAtRandomPoint()
     {
         int randomIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(playerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
-
+        GameObject player = Instantiate(playerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
+        UnityEventTools.AddPersistentListener(player.GetComponent<UniversalHealth>().onDeath, ResetPlayerWithinSpawnPoints);
     }
 
     public GameObject returnHostPlayer()
