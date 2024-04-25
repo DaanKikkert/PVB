@@ -6,7 +6,7 @@ namespace Code.Scripts.Player
     public enum PlayerClass
     {
         Warrior,
-        Archer,
+        Ranger,
         Mage
     }
     
