@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code.Scripts.Player;
 using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
@@ -10,6 +11,16 @@ public class BasicMovement : MonoBehaviour
     [SerializeField]private Transform body;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private LayerMask ignoredLayers;
+    [SerializeField] private Animator playerAnim;
+
+    private Vector3 _dirVector;
+
+    public Vector3 GetDirection()
+    {
+        return _dirVector;
+    }
+
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -24,10 +35,15 @@ public class BasicMovement : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(horizontalInput,0f ,  verticalInput);
-        characterController.Move(direction);
+        
+        _dirVector = new Vector3(horizontalInput,0f ,  verticalInput);
+        characterController.Move(_dirVector * moveSpeed);
+
+        // rb.MovePosition((Vector3)transform.position + (_dirVector * (moveSpeed * Time.deltaTime)));
+
+        playerAnim.SetBool("IsWalking", _dirVector.magnitude > 0.01f);
     }
-    
+
     private void HandlePlayerTurning()
     {
         bool success = GetMousePosition().success;
@@ -45,7 +61,6 @@ public class BasicMovement : MonoBehaviour
         Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, ~ignoredLayers))
             return (success: true, position: hitInfo.point);
-        
         else
             return (success: false, position: Vector3.zero);
     }
