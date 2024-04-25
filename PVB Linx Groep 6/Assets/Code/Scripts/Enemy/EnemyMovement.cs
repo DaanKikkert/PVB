@@ -86,7 +86,6 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            _targetPosition = _targetTransform.position;
             _references.animator.SetBool("IsMoving", true);
             _isChasingTarget = true;
             isInRange = false;
@@ -109,14 +108,10 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(Vector3 target)
     {
-        if(_targetDistance >= stopDistance)
-        {
-            _targetTransform = target;
-            _targetPosition = _targetTransform.position;
-            _navMeshAgent.SetDestination(_targetPosition);
-        }
+        _targetPosition = target;
+        _navMeshAgent.SetDestination(target);
         _isChasingTarget = true;
     }
 }

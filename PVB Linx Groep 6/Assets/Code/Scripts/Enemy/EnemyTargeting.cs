@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyTargeting : MonoBehaviour
 {
     public float detectionRadius = 10f;
-    
+
     [Tooltip("The delay between checks for target position")]
     [SerializeField] private float updateDelay = 0.2f;
     
@@ -12,10 +12,11 @@ public class EnemyTargeting : MonoBehaviour
     [SerializeField] private bool _targetsPlayer = true;
 
     [SerializeField] private LayerMask _playerLayer;
+    [SerializeField] private LayerMask _targetLayers;
     
     private Transform _enemyTarget;
     
-    private Transform _targetPosition;
+    private Vector3 _targetPosition;
 
     private EnemyReferences _references;
     
@@ -72,14 +73,22 @@ public class EnemyTargeting : MonoBehaviour
     {
         _enemyTarget = _references.mainBase.transform;
     }
+    
+    void GetTargetEdge()
+    {
+        RaycastHit hit;
+        Physics.Raycast(transform.position, _enemyTarget.position - transform.position, out hit, Mathf.Infinity, _targetLayers);
+        _targetPosition = hit.point;
+    }
 
     private void UpdateTarget()
     {
         _timer += Time.deltaTime;
         if (_timer >= updateDelay)
         {
-            _references.movement.SetTarget(_enemyTarget);
-            _timer = 0f;
+            GetTargetEdge();
+            _references.movement.SetTarget(_targetPosition);
+            _timer = 0f;;
         }
     }
 

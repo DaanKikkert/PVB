@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 2665050837866471461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: 2.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -216,11 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 10
-  updateDelay: 0.2
+  updateDelay: 0.5
   _targetsPlayer: 1
   _playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 320
 --- !u!114 &2568173817080176913
 MonoBehaviour:
   m_ObjectHideFlags: 0

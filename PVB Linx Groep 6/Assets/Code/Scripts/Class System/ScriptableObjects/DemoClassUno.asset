@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984491dd9e2a4dd4ebda6ae208b8423b, type: 3}
   m_Name: DemoClassUno
   m_EditorClassIdentifier: 
-  classTitle: SterkeClass
-  classDescription: Gang gang nigga
+  classTitle: Knight
+  classDescription: 
   classIcon: {fileID: 21300000, guid: d5eaf3b5ec9f77644aeccb0b560f4970, type: 3}
   classModel: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
   classBaseSpeed: 5
   classBaseHp: 123
-  classType: 1
+  classType: 0

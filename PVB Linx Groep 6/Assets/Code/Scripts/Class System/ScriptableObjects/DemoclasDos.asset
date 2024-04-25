@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984491dd9e2a4dd4ebda6ae208b8423b, type: 3}
   m_Name: DemoclasDos
   m_EditorClassIdentifier: 
-  classTitle: pepp
-  classDescription: Je stink
+  classTitle: Ranger
+  classDescription: 
   classIcon: {fileID: 21300000, guid: e0e5575ea34bfe4438557005fc384453, type: 3}
-  classModel: {fileID: 4618818556454921151, guid: 55d89bb58fd9d5741a392aceeb3841b3,
+  classModel: {fileID: 8674484015520534224, guid: 9c20b4b9d2c6394429aff2562a57e103,
     type: 3}
-  classBaseSpeed: 0
-  classBaseHp: 0
+  classBaseSpeed: 5
+  classBaseHp: 100
   classType: 1
