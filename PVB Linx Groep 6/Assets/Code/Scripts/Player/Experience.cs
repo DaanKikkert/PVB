@@ -11,6 +11,8 @@ public class Experience : MonoBehaviour
     [SerializeField] private Text showExperience;
     [SerializeField] private Slider showSlider;
     [SerializeField] private float maxExperience;
+    [SerializeField] private float experiencePerLevelIncrease;
+    [SerializeField] private float experienceTimesLevelMultiplier;
     
     private float _currentExperience;
     private int _currentLevel = 1;
@@ -35,7 +37,7 @@ public class Experience : MonoBehaviour
         if (_currentExperience >= maxExperience)
         {
             showSlider.value = 0;
-            maxExperience += 30 + _currentLevel * 20;
+            maxExperience += experiencePerLevelIncrease + _currentLevel * experienceTimesLevelMultiplier;
             _currentExperience = 0;
             showSlider.maxValue = maxExperience;
             _currentLevel += 1;

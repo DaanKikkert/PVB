@@ -1961,6 +1961,8 @@ MonoBehaviour:
   showExperience: {fileID: 1922756478}
   showSlider: {fileID: 5534587224610710794}
   maxExperience: 100
+  experiencePerLevelIncrease: 30
+  experienceTimesLevelMultiplier: 20
 --- !u!1001 &1621768610
 PrefabInstance:
   m_ObjectHideFlags: 0
