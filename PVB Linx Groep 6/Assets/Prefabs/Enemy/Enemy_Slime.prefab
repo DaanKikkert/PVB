@@ -202,6 +202,7 @@ MonoBehaviour:
   mainBase: {fileID: 0}
   movement: {fileID: 0}
   targeting: {fileID: 0}
+  getExperience: {fileID: 0}
   animator: {fileID: 3707803786494719894}
 --- !u!114 &711342545392018462
 MonoBehaviour:
@@ -249,6 +250,18 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4988737755266549167}
+        m_TargetAssemblyTypeName: EnemyReferences, Assembly-CSharp
+        m_MethodName: AddExperience
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 25
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
