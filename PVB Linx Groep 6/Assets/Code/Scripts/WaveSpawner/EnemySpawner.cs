@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Code.Scripts;
-using Unity.Mathematics;
-using UnityEditor.Events;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -16,8 +13,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        _zoneSize.x = zone.localScale.x;
-        _zoneSize.y = zone.localScale.z;
+        _zoneSize.x = zone.lossyScale.x;
+        _zoneSize.y = zone.lossyScale.z;
         float enemyHolderPosX = (_zoneSize.x / 2) * -1;
         float enemyHolderPosZ = (_zoneSize.y / 2) * -1;
         enemyHolder.localPosition = new Vector3(enemyHolderPosX, 0, enemyHolderPosZ);
@@ -31,9 +28,9 @@ public class EnemySpawner : MonoBehaviour
             int enemyType = Random.Range(0, enemyTypeList.Count);
             float enemySpawnPositionX = Random.Range(0, _zoneSize.x);
             float enemySpawnPositionY = Random.Range(0, _zoneSize.y);
-            GameObject enemy = Instantiate(enemyTypeList[enemyType], enemyHolder);
+            GameObject enemy = Instantiate(enemyTypeList[enemyType], enemyHolder, false);
             UniversalHealth health = enemy.GetComponent<UniversalHealth>();
-            UnityEventTools.AddPersistentListener(health.onDeath, WaveManager.instance.CheckForNewWave);
+            health.onDeath.AddListener(WaveManager.instance.CheckForNewWave);
             enemy.transform.localPosition = new Vector3(enemySpawnPositionX, 1, enemySpawnPositionY);
         }
     }
