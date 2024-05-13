@@ -427,10 +427,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 831851266753882580, guid: 4db251ed5120d2a4cac8393d146335d4,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.77
+      objectReference: {fileID: 0}
     - target: {fileID: 900772397777923936, guid: 4db251ed5120d2a4cac8393d146335d4,
         type: 3}
       propertyPath: m_Name
       value: PlayerArcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 900772397777923936, guid: 4db251ed5120d2a4cac8393d146335d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1771903407199428003, guid: 4db251ed5120d2a4cac8393d146335d4,
         type: 3}
@@ -2531,7 +2541,7 @@ PrefabInstance:
     - target: {fileID: 2599086883459034180, guid: 5ecd831aa69eaac418d45fe67d025065,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3883769990654764575, guid: 5ecd831aa69eaac418d45fe67d025065,
         type: 3}
