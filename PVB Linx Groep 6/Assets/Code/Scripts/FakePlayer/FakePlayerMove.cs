@@ -35,11 +35,6 @@ public class FakePlayerMove : MonoBehaviour
         state = FakePlayerState.Pinged;
         StartCoroutine(ReachdPlace());
     }
-
-
-
-
-
     private void Update()
     {
 
