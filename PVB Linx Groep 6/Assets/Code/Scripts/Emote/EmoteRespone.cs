@@ -12,10 +12,7 @@ public class EmoteRespone : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            Debug.Log("Player has enterd");
             _playerInput = player.gameObject.GetComponent<EmoteHandler>();
-            if (_playerInput == null)
-                Debug.Log("Is null How?");
             _playerInput.onEmote.AddListener(emoteResponse);
         }
     }
