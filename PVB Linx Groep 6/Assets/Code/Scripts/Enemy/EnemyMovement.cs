@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -7,8 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [HideInInspector] public bool isInRange = false;
-    
+    public bool isInRange = false;
+
     [SerializeField] private float moveSpeed = 5f;
     
     [Tooltip("The distance the enemy stops from its target")]
@@ -23,18 +22,14 @@ public class EnemyMovement : MonoBehaviour
     private EnemyReferences _references;
     
     private Vector3 _targetPosition;
-
     private NavMeshAgent _navMeshAgent;
 
-    private float _targetDistance;
+    private float targetDistance;
     
     private bool _isChasingTarget = false;
-    
     private Transform _targetTransform;
 
     private float _timer;
-    
-    
     
     private void Awake()
     {
@@ -55,8 +50,8 @@ public class EnemyMovement : MonoBehaviour
         if (!_navMeshAgent.enabled)
             return;
 
-        _targetDistance = Vector3.Distance(_targetPosition, transform.position);
-        if (_targetDistance <= stopDistance) 
+        targetDistance = Vector3.Distance(_targetPosition, transform.position);
+        if (targetDistance <= stopDistance) 
             FaceTarget();
         else
         {
@@ -68,13 +63,14 @@ public class EnemyMovement : MonoBehaviour
 
     private void CheckLineOfSight()
     {
+        _targetPosition = _targetTransform.position;
+        
         //Hardcoded for a good reason, this is to avoid the error of the layermask not being set correctly in the inspector.
         int layer = 7;
         int layerMask = 1 << layer;
         
         RaycastHit hit;
         Physics.Raycast(transform.position, _targetTransform.position - transform.position, out hit, Mathf.Infinity, ~layerMask);
-        
         Debug.DrawRay(transform.position, _targetTransform.position - transform.position, Color.red);
         
         if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
@@ -108,10 +104,11 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void SetTarget(Vector3 target)
+    public void SetTarget(Transform target)
     {
-        _targetPosition = target;
-        _navMeshAgent.SetDestination(target);
+        _targetTransform = target;
+        _targetPosition = _targetTransform.position;
+        _navMeshAgent.SetDestination(_targetPosition);
         _isChasingTarget = true;
     }
 }

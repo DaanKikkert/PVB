@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6779397447842670140}
   - component: {fileID: 7501880228246414700}
   - component: {fileID: 2682184119763977706}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -120,13 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
-  onHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  isFullHealth: 1
+  _objectType: 2
 --- !u!54 &2682184119763977706
 Rigidbody:
   m_ObjectHideFlags: 0
