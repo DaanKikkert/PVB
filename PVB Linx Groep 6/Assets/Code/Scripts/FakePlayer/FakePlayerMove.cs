@@ -55,6 +55,7 @@ public class FakePlayerMove : MonoBehaviour
                 break;
             case FakePlayerState.Shooting:
                 RunFromEnemy();
+                attack.Attack();
                 break;
             default:
                 break;
