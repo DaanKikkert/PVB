@@ -14,12 +14,14 @@ public class FakePlayerMove : MonoBehaviour
     public NavMeshAgent agent;
     private Vector3 _destination;
     private float _timer;
+    private BoxCollider _collider;
     private Transform _target;
     private void Awake()
     {
         state = FakePlayerState.Scouting;
         GoScouting();
         PingSystem.onPing.AddListener(MoveToPingArea);
+        _collider = GetComponent<BoxCollider>();
     }
     public void MoveToPingArea()
     {
@@ -31,7 +33,7 @@ public class FakePlayerMove : MonoBehaviour
         agent.destination = goToLocation;
         _destination = goToLocation;
         state = FakePlayerState.Pinged;
-        StartCoroutine(test());
+        StartCoroutine(ReachdPlace());
     }
 
 
@@ -75,9 +77,11 @@ public class FakePlayerMove : MonoBehaviour
     }
 
 
-    private IEnumerator test()
+    private IEnumerator ReachdPlace()
     {
         yield return new WaitUntil(() => state == FakePlayerState.Pinged && CheckIfAgentReachedLocation());
+        _collider.enabled = false;
+        _collider.enabled = true;
         state = FakePlayerState.Scouting;
     }
 
@@ -111,7 +115,7 @@ public class FakePlayerMove : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" && state != FakePlayerState.Pinged)
         {
             state = FakePlayerState.Shooting;
             _target = other.gameObject.transform;

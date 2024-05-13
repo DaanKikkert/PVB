@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PingSystem : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PingSystem : MonoBehaviour
     [SerializeField] private float delayBetweenPings;
     [SerializeField] private GameObject[] pingPrefabs;
     [SerializeField] private GameObject background;
+    [SerializeField] private float heightOffset;
 
     public void Start()
     {
@@ -27,7 +29,7 @@ public class PingSystem : MonoBehaviour
         if (!_hasPinged)
         {
             _hasPinged = true;
-            GameObject ping = Instantiate(pingPrefabs[index],_lastMousePosition , Quaternion.identity);
+            GameObject ping = Instantiate(pingPrefabs[index],new Vector3(_lastMousePosition.x, heightOffset, _lastMousePosition.z) , Quaternion.identity);
             if (onPing != null)
                 onPing.Invoke();
             yield return new WaitForSeconds(delayBetweenPings);

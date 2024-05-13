@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EmoteRespone : MonoBehaviour
 {
+    [SerializeField] private float delayBetweenLeaving;
     [SerializeField] private float responseTime;
     private EmoteHandler _playerInput;
+    private GameObject _emote;
     private void OnTriggerEnter(Collider player)
     {
-        Debug.Log("Something has enterd");
         if (player.gameObject.tag == "Player")
         {
             Debug.Log("Player has enterd");
@@ -20,15 +20,16 @@ public class EmoteRespone : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        if (_emote != null)
+            _emote.transform.position = new Vector3(transform.position.x, _playerInput.GetemoteHeight(), transform.position.z);
+    }
 
     private void OnTriggerExit(Collider player)
     {
         if (player.gameObject.tag == "Player")
-        {
-            _playerInput.onEmote.RemoveListener(emoteResponse);
-            _playerInput = null;
-        }
+            StartCoroutine(delayRemovePlayer());
 
     }
     private void emoteResponse()
@@ -36,16 +37,23 @@ public class EmoteRespone : MonoBehaviour
        StartCoroutine(EmoteCreator(_playerInput));
     }
 
+    private IEnumerator delayRemovePlayer()
+    {
+        yield return new WaitForSeconds(delayBetweenLeaving);
+        if (_playerInput!= null)
+            _playerInput.onEmote.RemoveListener(emoteResponse); 
+        _playerInput = null;
+    }
 
     //Mogelijk Override doen? Idk hoe het goed werkt dus ik doe voor nu zo
     private IEnumerator EmoteCreator(EmoteHandler playerInput)
     {
-
         yield return new WaitForSeconds(responseTime);
-        GameObject emote = Instantiate(playerInput.getPlayerEmotesList()[playerInput.getEmoteID()], transform);
-        emote.transform.localPosition = new Vector3(0, playerInput.GetemoteHeight(), 0);
+        _emote = Instantiate(playerInput.getPlayerEmotesList()[playerInput.getEmoteID()]);
+        _emote.transform.transform.localScale = transform.lossyScale;
+        _emote.transform.position = new Vector3(0, playerInput.GetemoteHeight(), 0);
         yield return new WaitForSeconds(playerInput.GetdelayBetweenEmotes());
-        Destroy(emote);
-
+        Destroy(_emote);
+        _emote = null;
     }
 }
