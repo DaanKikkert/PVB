@@ -482,6 +482,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3698506226767628433, guid: 4db251ed5120d2a4cac8393d146335d4,
+        type: 3}
+      propertyPath: ignoredLayers.m_Bits
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2522,6 +2527,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599086883459034180, guid: 5ecd831aa69eaac418d45fe67d025065,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883769990654764575, guid: 5ecd831aa69eaac418d45fe67d025065,
+        type: 3}
+      propertyPath: ignoredLayers.m_Bits
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

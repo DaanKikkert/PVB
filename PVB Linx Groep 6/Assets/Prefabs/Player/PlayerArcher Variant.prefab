@@ -18,6 +18,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0.025
       objectReference: {fileID: 0}
+    - target: {fileID: 6610065375124858524, guid: 386599622fa69d54489f0e3a81837b97,
+        type: 3}
+      propertyPath: ignoredLayers.m_Bits
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7235102103308632429, guid: 386599622fa69d54489f0e3a81837b97,
         type: 3}
       propertyPath: m_Name
@@ -26,7 +31,7 @@ PrefabInstance:
     - target: {fileID: 7235102103308632429, guid: 386599622fa69d54489f0e3a81837b97,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8106198388980986798, guid: 386599622fa69d54489f0e3a81837b97,
         type: 3}
