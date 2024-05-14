@@ -10,7 +10,7 @@ public class EmoteRespone : MonoBehaviour
     private GameObject _emote;
     private void OnTriggerEnter(Collider player)
     {
-        if (player.gameObject.tag == "Player")
+        if (player.CompareTag("Player"))
         {
             _playerInput = player.gameObject.GetComponent<EmoteHandler>();
             _playerInput.onEmote.AddListener(emoteResponse);
@@ -19,13 +19,13 @@ public class EmoteRespone : MonoBehaviour
 
     private void Update()
     {
-        if (_emote != null)
+        if (_emote != null && _playerInput != null)
             _emote.transform.position = new Vector3(transform.position.x, _playerInput.GetemoteHeight(), transform.position.z);
     }
 
     private void OnTriggerExit(Collider player)
     {
-        if (player.gameObject.tag == "Player")
+        if (player.CompareTag("Player"))
             StartCoroutine(delayRemovePlayer());
 
     }
