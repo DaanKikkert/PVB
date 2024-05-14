@@ -2,9 +2,9 @@
 
 ### Produced  Game Onderdelen
 Byron:
-  * [Mockup multiplayer](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Catalog-Swipe/ProefExamenProject/Assets/CarStore/Scripts)
-  * [Player movement](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Wave system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
+  * [Mockup multiplayer](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/FakePlayer/FakePlayerMove.cs)
+  * [Player movement](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/PlayerMovement.cs)
+  * [Wave system](https://github.com/DaanKikkert/PVB/tree/develop/PVB%20Linx%20Groep%206/Assets/Code/Scripts/WaveSpawner)
   * [Class system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
   * [Respawning of players](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
   * [Game Reset](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
