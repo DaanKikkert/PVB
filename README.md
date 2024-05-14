@@ -1,2 +1,4 @@
 # PVB
-Prove van Bekwaamheid
+Proeve van Bekwaamheid
+
+[Git Wiki](https://github.com/DaanKikkert/PVB/wiki)

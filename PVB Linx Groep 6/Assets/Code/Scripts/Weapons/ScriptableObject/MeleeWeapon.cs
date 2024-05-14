@@ -21,14 +21,16 @@ namespace Weapons
 
         public override void Attack()
         {
-            WeaponMonoInstance.instance.StartCoroutine(ToggleHitbox());
+            if (WeaponMonoInstance.instance != null)
+                WeaponMonoInstance.instance.StartCoroutine(ToggleHitbox());
         }
 
         private IEnumerator ToggleHitbox()
         {
             _hitbox.enabled = true;
             yield return new WaitForSeconds(hitBoxDuration);
-            _hitbox.enabled = false;
+            if(_hitbox != null)
+                _hitbox.enabled = false;
         }
 
         public override void SpawnWeapon(Transform parent)
