@@ -6,7 +6,7 @@ namespace Code.Scripts
     public class UniversalHealth : MonoBehaviour
     {
         [SerializeField] private int _maxHealth;
-        public UnityEvent onHealthChange;
+        [SerializeField] private UnityEvent onHealthChange;
         public UnityEvent onDeath;
         
         public bool isFullHealth = true;
