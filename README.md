@@ -19,6 +19,7 @@ Daan:
   * [MockUp Player Attack](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/FakePlayer/FakePlayerAttack.cs)
   * [Universal Health Script (with Guido)](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UniversalHealth.cs)
   * [Wave UI Script](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/WaveUI.cs?raw=true)
+
 Dirk:
   * Old enemies
   * Placeable turrets
@@ -26,6 +27,7 @@ Dirk:
   * Experience with Guido
   * Animations
   * Healthbar
+
 Guido:
   * Universal health with Daan
   * Old ping system
