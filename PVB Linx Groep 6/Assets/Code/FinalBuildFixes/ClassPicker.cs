@@ -17,6 +17,9 @@ public class ClassPicker : MonoBehaviour
             PlayerRespawnManager.instance.SpawnAtRandomPoint();
             PlayerRespawnManager.instance.ResetPlayerWithinSpawnPoints();
         }
+
+        if (WaveManager.instance != null)
+            WaveManager.instance.NewWave();
         Destroy(camera);
         Destroy(transform.parent.gameObject);
     }

@@ -85,10 +85,8 @@ public class PlayerAttack : MonoBehaviour
         if (_attackTimer <= 0f)
         {
             playerAttackAnim.SetLayerWeight(1, getVector.GetDirection().magnitude > 0.01f ? maxAnimMaskLayer : 0f);
-
             playerAttackAnim.SetBool("IsAttacking", true);
             playerAttackAnim.SetBool("IsWalking", false);
-
             weapon.setAttackDirection(spawnPointBullet.transform.rotation, spawnPointBullet.transform.position);
             weapon.Attack();
             _attackTimer = weapon.attackDelay;
