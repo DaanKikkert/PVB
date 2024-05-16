@@ -1,4 +1,5 @@
 using Code.Scripts.Player;
+using Code.Scripts.Weapons;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
