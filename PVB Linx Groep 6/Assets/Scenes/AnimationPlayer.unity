@@ -440,7 +440,7 @@ PrefabInstance:
     - target: {fileID: 900772397777923936, guid: 4db251ed5120d2a4cac8393d146335d4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1771903407199428003, guid: 4db251ed5120d2a4cac8393d146335d4,
         type: 3}
@@ -792,6 +792,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Weapon_Arrow_V1
+      objectReference: {fileID: 0}
+    - target: {fileID: 536489464226678564, guid: b1c286aad3f49974aaea5dbdee373d0e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 881068353585208734, guid: b1c286aad3f49974aaea5dbdee373d0e,
         type: 3}
@@ -2541,7 +2546,7 @@ PrefabInstance:
     - target: {fileID: 2599086883459034180, guid: 5ecd831aa69eaac418d45fe67d025065,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3883769990654764575, guid: 5ecd831aa69eaac418d45fe67d025065,
         type: 3}
