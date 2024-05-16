@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyRangedWeapon01 1
   m_EditorClassIdentifier: 
   damage: 10
-  attackDelay: 1
+  attackDelay: 2
   weaponModel: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
     type: 3}
   projectile: {fileID: 360619707158332041, guid: da4b47fc6d39158498254b56f9fe990a,

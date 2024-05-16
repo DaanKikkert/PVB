@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackDelay: 1
-  weaponModel: {fileID: 813439366912035191, guid: 1afdeb1e3307e3e4392ea9704e005d39,
+  tag: []
+  weaponModel: {fileID: 1359968859075555364, guid: 270323c5985f51249a8a7602816bf29c,
     type: 3}
-  projectile: {fileID: 536489464226678564, guid: b1c286aad3f49974aaea5dbdee373d0e,
+  projectile: {fileID: 360619707158332041, guid: 4b90061f525389f45925574b218f3498,
     type: 3}
