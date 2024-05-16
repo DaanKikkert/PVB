@@ -9,8 +9,28 @@ Byron:
   * [Respawning of players](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
   * [Game Reset](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
   * [Universal fadeout effect](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [New Emote system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [New Ping system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
+  * [Reworked Emote system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
+  * [Reworked Ping system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
+
+Daan:   
+  * [Weapon system](https://github.com/DaanKikkert/PVB/tree/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Weapons)
+  * [Player Attack Script](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Weapons/PlayerAttack.cs)
+  * [Reworked Enemies Scripts](https://github.com/DaanKikkert/PVB/tree/develop/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Enemy)
+  * [MockUp Player Attack](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/FakePlayer/FakePlayerAttack.cs)
+  * [Universal Health Script (with Guido)](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UniversalHealth.cs)
+  * [Wave UI Script](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/WaveUI.cs?raw=true)
+Dirk:
+  * Old enemies
+  * Placeable turrets
+  * Shop
+  * Experience with Guido
+  * Animations
+  * Healthbar
+Guido:
+  * Universal health with Daan
+  * Old ping system
+  * Old Emote system
+  * Experience with Dirk
 <details>
   <summary>
     <b>Press to see the concept </b>
