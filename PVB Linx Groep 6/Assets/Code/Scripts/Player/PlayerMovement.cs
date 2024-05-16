@@ -7,7 +7,7 @@ using UnityEngine;
 public class BasicMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    [SerializeField]private CharacterController characterController;
+    [SerializeField]private Rigidbody rb;
     [SerializeField]private Transform body;
     [SerializeField] private Camera playerCamera;
     [SerializeField] private LayerMask ignoredLayers;
@@ -18,12 +18,6 @@ public class BasicMovement : MonoBehaviour
     public Vector3 GetDirection()
     {
         return _dirVector;
-    }
-
-
-    private void Awake()
-    {
-        characterController = GetComponent<CharacterController>();
     }
 
     void FixedUpdate()
@@ -37,9 +31,7 @@ public class BasicMovement : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         
         _dirVector = new Vector3(horizontalInput,0f ,  verticalInput);
-        characterController.Move(_dirVector * moveSpeed);
-
-        // rb.MovePosition((Vector3)transform.position + (_dirVector * (moveSpeed * Time.deltaTime)));
+        rb.MovePosition((Vector3)transform.position + (_dirVector * (moveSpeed * Time.deltaTime)));
 
         playerAnim.SetBool("IsWalking", _dirVector.magnitude > 0.01f);
     }

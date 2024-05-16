@@ -47,7 +47,7 @@ public class EmoteRespone : MonoBehaviour
     {
         yield return new WaitForSeconds(responseTime);
         _emote = Instantiate(playerInput.getPlayerEmotesList()[playerInput.getEmoteID()]);
-        _emote.transform.transform.localScale = transform.lossyScale;
+        _emote.transform.transform.localScale = new Vector3(.1f,.1f,.1f);
         _emote.transform.position = new Vector3(0, playerInput.GetemoteHeight(), 0);
         yield return new WaitForSeconds(playerInput.GetdelayBetweenEmotes());
         Destroy(_emote);

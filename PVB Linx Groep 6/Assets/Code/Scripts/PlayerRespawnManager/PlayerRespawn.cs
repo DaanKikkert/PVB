@@ -9,23 +9,21 @@ using Random = UnityEngine.Random;
 
 public class PlayerRespawnManager : MonoBehaviour
 {
+    [SerializeField] private int fakePlayersCount;
     [SerializeField] private Transform playerHolder;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject fakePlayerPrefab;
     public static PlayerRespawnManager instance;
+    
 
     private void Awake()
     {
         instance = this;
     }
 
-    private void Start()
+    public Transform GetPlayerHolder()
     {
-        //WILL BE EDITED WHEN SERVERS IS RUNNING. SERVER.PLAYERCOUNT WILL REPLACE 4.
-        for (int i = 0; i < 1; i++)
-        {
-            SpawnAtRandomPoint();
-        }
+        return playerHolder;
     }
 
     public void ResetPlayerWithinSpawnPoints()
@@ -39,14 +37,15 @@ public class PlayerRespawnManager : MonoBehaviour
 
     public void SpawnAtRandomPoint()
     {
-        int randomIndex = Random.Range(0, spawnPoints.Length);
-        Instantiate(playerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
-
+        for (int i = 0; i < fakePlayersCount; i++)
+        {
+            int randomIndex = Random.Range(0, spawnPoints.Length);
+            Instantiate(fakePlayerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
+        }
     }
 
     public GameObject returnHostPlayer()
     {
-        //WILL BE EDITED ONCE NETWORK IS DONE.
         return playerHolder.GetChild(0).gameObject;
     }
 
