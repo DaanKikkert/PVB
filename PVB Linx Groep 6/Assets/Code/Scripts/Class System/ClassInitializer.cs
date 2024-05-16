@@ -3,41 +3,38 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.Mathematics;
 using UnityEditor;
+using UnityEditor.Events;
+using UnityEditor.Experimental;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class ClassInitializer : MonoBehaviour
 {
     [SerializeField] private string path;
     [SerializeField] private RectTransform classVisual;
     [SerializeField] private CanvasGroup backGround;
-    [SerializeField] private List<ClassBase> madeClasses = new List<ClassBase>();
+    private List<ClassBase> _classes = new List<ClassBase>();
 
     private void Awake()
     {
-        var classes = Resources.LoadAll<ClassBase>(path);
-        if (classes != null && madeClasses == null )
+
+        string[] files = Directory.GetFiles(path, "*.asset", SearchOption.TopDirectoryOnly);
+        for (int i = 0; i < files.Length; i++)
         {
-            foreach (var curClass in classes)
-            {
-                madeClasses.Add(curClass);
-            }
+            ClassBase currClassBase = (ClassBase)AssetDatabase.LoadAssetAtPath(files[i], typeof(ClassBase));
+            _classes.Add(currClassBase);
         }
-
         SpawnClasses();
-
-
 
     }
 
 
-   
-
     private void SpawnClasses()
     {
 
-        for (int i = 0; i < madeClasses.Count; i++)
+        for (int i = 0; i < _classes.Count; i++)
         {
-            ClassBase currClass = madeClasses[i];
+            ClassBase currClass = _classes[i];
             RectTransform classItem = Instantiate(classVisual, transform);
             ClassvisualHolder visualSetter = classItem.gameObject.GetComponent<ClassvisualHolder>();
             if (visualSetter != null)

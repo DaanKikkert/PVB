@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SlimeMelee
   m_EditorClassIdentifier: 
   damage: 10
-  attackDelay: 2
+  attackDelay: 1
   weaponModel: {fileID: 7288555645625354194, guid: 7e8c0acb1479b4849baffdd8fbec7d7d,
     type: 3}
-  hitBoxDuration: 0.3
+  hitBoxDuration: 0.1
   hitboxOffset: 0
-  hitboxScale: {x: 4, y: 4, z: 4}
+  hitboxScale: {x: 3, y: 3, z: 3}

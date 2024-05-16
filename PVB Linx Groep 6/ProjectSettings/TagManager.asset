@@ -10,7 +10,7 @@ TagManager:
   - BuildSite
   - Arrow
   - Shop
-  - HealthCanvas
+  - FakePlayer
   layers:
   - Default
   - TransparentFX
