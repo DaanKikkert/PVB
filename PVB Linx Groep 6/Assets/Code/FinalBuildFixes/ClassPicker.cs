@@ -10,7 +10,6 @@ public class ClassPicker : MonoBehaviour
     
     public void PickThisClass()
     {
-        Debug.Log("Called");
         if (PlayerRespawnManager.instance != null)
         {
             Instantiate(player,PlayerRespawnManager.instance.GetPlayerHolder());

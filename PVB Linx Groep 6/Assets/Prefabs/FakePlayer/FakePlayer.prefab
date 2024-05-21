@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7244575540039600822}
   - component: {fileID: 2477873007911549605}
   - component: {fileID: 866639647459781661}
+  - component: {fileID: -831535233079030998}
   m_Layer: 6
   m_Name: FakePlayer
   m_TagString: Player
@@ -247,14 +248,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa26d39fa55c7649bc268e86bff3bc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _maxHealth: 100
   onHealthChange:
     m_PersistentCalls:
       m_Calls: []
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -831535233079030998}
+        m_TargetAssemblyTypeName: Respawn, Assembly-CSharp
+        m_MethodName: RespawnPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   isFullHealth: 1
+--- !u!114 &-831535233079030998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138795928906116554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd222ffec542674eb85c561f9ef3053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 866639647459781661}
 --- !u!1 &658688420581804084
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +292,7 @@ GameObject:
   - component: {fileID: 8841798404989720074}
   m_Layer: 6
   m_Name: WeaponSpawn
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +325,7 @@ GameObject:
   - component: {fileID: 8476399484506823760}
   m_Layer: 6
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

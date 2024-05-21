@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Events;
+using UnityEngine.Events;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -23,7 +23,8 @@ public class ClassvisualHolder : MonoBehaviour
         icon.sprite = thisClassBase.classIcon;
         title.text = thisClassBase.classTitle;
         description.text = thisClassBase.classDescription;
-        UnityEventTools.AddPersistentListener(button.onClick,LoadClassIntoPlayer);
+        button.onClick.AddListener(LoadClassIntoPlayer);
+        
     }
 
 

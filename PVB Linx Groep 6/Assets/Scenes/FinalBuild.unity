@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3893,6 +3893,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6df93cb1f11e53049ad5c7c12a24f132, type: 3}
+--- !u!114 &516835094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2833764082179300457, guid: e127490021b1bce4e9500be62a203565,
+    type: 3}
+  m_PrefabInstance: {fileID: 631100702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &552584473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3a4b3dafde11be74282b2ced6b47f9d6,
@@ -4107,6 +4119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Experience Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6081774373967351315, guid: e127490021b1bce4e9500be62a203565,
+        type: 3}
+      propertyPath: m_TagString
+      value: Experience
+      objectReference: {fileID: 0}
     - target: {fileID: 8256819169877340987, guid: e127490021b1bce4e9500be62a203565,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -4120,7 +4137,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6081774373967351315, guid: e127490021b1bce4e9500be62a203565,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 661988981}
   m_SourcePrefab: {fileID: 100100000, guid: e127490021b1bce4e9500be62a203565, type: 3}
 --- !u!1001 &638850189
 PrefabInstance:
@@ -4284,6 +4305,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15c0813aac6b4a4c9f35dd4dd55fa0b, type: 3}
+--- !u!1 &661988976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6081774373967351315, guid: e127490021b1bce4e9500be62a203565,
+    type: 3}
+  m_PrefabInstance: {fileID: 631100702}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &661988981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661988976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8e614b0233a484ebf13f9a59bb41ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showLevel: {fileID: 860098989}
+  showExperience: {fileID: 1471184853}
+  showSlider: {fileID: 516835094}
+  maxExperience: 100
+  experiencePerLevelIncrease: 10
+  experienceTimesLevelMultiplier: 1.1
 --- !u!1001 &667334188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6510,6 +6555,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4155517924731613650, guid: aaef52f760e38ef49a85471812dae2d1, type: 3}
+--- !u!114 &860098989 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6006080615269533782, guid: e127490021b1bce4e9500be62a203565,
+    type: 3}
+  m_PrefabInstance: {fileID: 631100702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &863859243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a15c0813aac6b4a4c9f35dd4dd55fa0b,
@@ -11818,6 +11875,18 @@ Transform:
   - {fileID: 1867466438}
   m_Father: {fileID: 1123072847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1471184853 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8392271547947490851, guid: e127490021b1bce4e9500be62a203565,
+    type: 3}
+  m_PrefabInstance: {fileID: 631100702}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1471535770
 PrefabInstance:
   m_ObjectHideFlags: 0

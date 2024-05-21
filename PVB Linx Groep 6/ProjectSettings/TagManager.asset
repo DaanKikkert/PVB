@@ -11,6 +11,7 @@ TagManager:
   - Arrow
   - Shop
   - FakePlayer
+  - Experience
   layers:
   - Default
   - TransparentFX

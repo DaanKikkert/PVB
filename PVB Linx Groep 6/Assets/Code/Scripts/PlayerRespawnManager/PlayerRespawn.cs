@@ -15,7 +15,6 @@ public class PlayerRespawnManager : MonoBehaviour
     [SerializeField] private GameObject fakePlayerPrefab;
     public static PlayerRespawnManager instance;
     
-
     private void Awake()
     {
         instance = this;
@@ -40,8 +39,14 @@ public class PlayerRespawnManager : MonoBehaviour
         for (int i = 0; i < fakePlayersCount; i++)
         {
             int randomIndex = Random.Range(0, spawnPoints.Length);
-            Instantiate(fakePlayerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
+            GameObject fakeplayer = Instantiate(fakePlayerPrefab, spawnPoints[randomIndex].position, quaternion.identity , playerHolder);
         }
+    }
+
+    public void ResetPlayer(GameObject player)
+    {
+        int randomIndex = Random.Range(0, spawnPoints.Length);
+        player.transform.position = spawnPoints[randomIndex].position;
     }
 
     public GameObject returnHostPlayer()

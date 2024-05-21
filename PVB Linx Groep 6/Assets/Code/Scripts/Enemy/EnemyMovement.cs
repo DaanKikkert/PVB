@@ -2,8 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-
-
 public class EnemyMovement : MonoBehaviour
 {
     public bool isInRange = false;
@@ -73,12 +71,17 @@ public class EnemyMovement : MonoBehaviour
         Physics.Raycast(transform.position, _targetTransform.position - transform.position, out hit, Mathf.Infinity, ~layerMask);
         Debug.DrawRay(transform.position, _targetTransform.position - transform.position, Color.red);
         
-        if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
+        if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
         {
             _references.animator.SetBool("IsMoving", false);
             _isChasingTarget = false;
             StartCoroutine(StopMove(stopDelay));
             isInRange = true;
+        }
+        else if (hit.collider == null)
+        {
+            _isChasingTarget = true;
+            isInRange = false;
         }
         else
         {
