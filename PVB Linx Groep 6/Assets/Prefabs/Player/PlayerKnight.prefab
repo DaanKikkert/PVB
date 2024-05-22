@@ -1195,6 +1195,37 @@ RectTransform:
   m_AnchoredPosition: {x: 211.51103, y: 3.3699036}
   m_SizeDelta: {x: 423.02206, y: 204.2692}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3178081629197416434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2671327538630866873}
+  m_Layer: 6
+  m_Name: WeaponHitboxPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2671327538630866873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3178081629197416434}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.292, z: 0.189}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5121609186159173223}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3245630976386897695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,6 +2149,7 @@ Transform:
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2671327538630866873}
   - {fileID: 5226838504011973416}
   - {fileID: 7974180446866311020}
   - {fileID: 8190360169879591422}
@@ -2406,7 +2438,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07, type: 2}
   playerAttackAnim: {fileID: 1129288172926447158}
   spawnPointBow: {fileID: 8186721354050205436}
-  spawnPointBullet: {fileID: 8186721354050205436}
+  spawnPointBullet: {fileID: 3178081629197416434}
   getVector: {fileID: 9024480813590784679}
   playerClass: {fileID: -2895375857655873087}
   attackAnimationName: SwordSlash
