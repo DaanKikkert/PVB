@@ -21,7 +21,7 @@ Daan:
   * [Wave UI Script](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/WaveUI.cs?raw=true)
 
 Dirk:
-  * Old enemies
+  * [Old enemies](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Enemy/Enemy.cs)
   * [Placeable Turrets](https://github.com/DaanKikkert/PVB/blob/feature/build-structures/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Build%20Structure/BuildStructure.cs)
   * [Shop](https://github.com/DaanKikkert/PVB/tree/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Shop)
   * [Experience with Guido](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
@@ -29,7 +29,7 @@ Dirk:
   * [Healthbar](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Health/ShowHealth.cs)
 
 Guido:
-  * Universal health with Daan
+  * [Universal health with Daan](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UniversalHealth.cs)
   * Old ping system
   * Old Emote system
   * [Experience with Dirk](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
