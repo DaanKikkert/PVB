@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
     private void Start()
     {
         _references = GetComponentInParent<EnemyReferences>();
+        weapon.hitboxHolder = spawnPoint;
         weapon.SpawnWeapon(spawnPoint.transform);
     }
 

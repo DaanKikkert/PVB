@@ -731,6 +731,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2671327538630866873}
   - {fileID: 888956319388278706}
   - {fileID: 766322925714615687}
   m_Father: {fileID: 5121609186159173223}
@@ -1204,6 +1205,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2671327538630866873}
+  - component: {fileID: 3955013383586908149}
   m_Layer: 6
   m_Name: WeaponHitboxPos
   m_TagString: Untagged
@@ -1219,13 +1221,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3178081629197416434}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.292, z: 0.189}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.92, z: 1.89}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5121609186159173223}
+  m_Father: {fileID: 8190360169879591422}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3955013383586908149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3178081629197416434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a56fdfc8f275e4d8a847ff12a29503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07, type: 2}
+  playerAttackAnim: {fileID: 1129288172926447158}
+  spawnPointBow: {fileID: 8186721354050205436}
+  spawnPointBullet: {fileID: 3178081629197416434}
+  getVector: {fileID: 9024480813590784679}
+  playerClass: {fileID: -2895375857655873087}
+  attackAnimationName: SwordSlash
+  maxAnimMaskLayer: 0
 --- !u!1 &3245630976386897695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2171,6 @@ Transform:
   m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2671327538630866873}
   - {fileID: 5226838504011973416}
   - {fileID: 7974180446866311020}
   - {fileID: 8190360169879591422}
@@ -2400,7 +2421,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8563226856983734709}
-  - component: {fileID: 4935999306576907469}
   m_Layer: 6
   m_Name: WeaponHolder
   m_TagString: Player
@@ -2423,26 +2443,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 956887981283060345}
   m_LocalEulerAnglesHint: {x: -36.029, y: 0, z: 90.7}
---- !u!114 &4935999306576907469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186721354050205436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a56fdfc8f275e4d8a847ff12a29503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 1fae771568f85734b9eb93a14778bf07, type: 2}
-  playerAttackAnim: {fileID: 1129288172926447158}
-  spawnPointBow: {fileID: 8186721354050205436}
-  spawnPointBullet: {fileID: 3178081629197416434}
-  getVector: {fileID: 9024480813590784679}
-  playerClass: {fileID: -2895375857655873087}
-  attackAnimationName: SwordSlash
-  maxAnimMaskLayer: 0
 --- !u!1 &8252500407229897399
 GameObject:
   m_ObjectHideFlags: 0

@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInRange: 0
   moveSpeed: 5
-  stopDistance: 2.5
+  stopDistance: 1
   stopDelay: 0.2
   lookSpeed: 5
 --- !u!114 &4988737755266549167
@@ -258,9 +258,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: -2924870245425538197}
-        m_TargetAssemblyTypeName: EnemyReferences, Assembly-CSharp
-        m_MethodName: AddExperience
-        m_Mode: 4
+        m_TargetAssemblyTypeName: AddExperience, Assembly-CSharp
+        m_MethodName: AddExp
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
