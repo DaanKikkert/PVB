@@ -26,7 +26,7 @@ Dirk:
   * [Shop](https://github.com/DaanKikkert/PVB/tree/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Shop)
   * [Experience with Guido](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
   * Animations
-  * Healthbar
+  * [Healthbar](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Health/ShowHealth.cs)
 
 Guido:
   * Universal health with Daan
