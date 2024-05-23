@@ -23,7 +23,7 @@ Daan:
 Dirk:
   * Old enemies
   * [Placeable Turrets](https://github.com/DaanKikkert/PVB/blob/feature/build-structures/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Build%20Structure/BuildStructure.cs)
-  * Shop
+  * [Shop](https://github.com/DaanKikkert/PVB/tree/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Shop)
   * Experience with Guido
   * Animations
   * Healthbar
