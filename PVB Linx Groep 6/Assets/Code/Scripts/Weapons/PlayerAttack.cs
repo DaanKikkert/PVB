@@ -23,11 +23,12 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] [Range(0,1)] private float maxAnimMaskLayer;
 
     private float _attackTimer;
-    private bool _isHolding;
+    private bool _isHolding = true;
 
     private void Start()
     {
         weapon.SpawnWeapon(spawnPointBow.transform);
+        playerAttackAnim.SetBool("IsAiming", true);
     }
 
     private void Update()
@@ -57,24 +58,12 @@ public class PlayerAttack : MonoBehaviour
 
     private void HandleArcherInput()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            _isHolding = true;
-            playerAttackAnim.SetBool("IsAiming", true);
-        }
-
         switch (_isHolding)
         {
             case true:
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                     Attack();
-            
-                if (Input.GetKeyUp(KeyCode.Mouse1))
-                {
-                    _isHolding = false;
-                    playerAttackAnim.SetBool("IsAiming", false);
-                }
                 break;
             }
         }

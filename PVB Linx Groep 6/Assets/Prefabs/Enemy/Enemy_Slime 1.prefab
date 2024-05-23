@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7442230685668843755}
   m_Layer: 7
   m_Name: WeaponHolder
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 711342545392018462}
   - component: {fileID: 3089472749456291990}
   - component: {fileID: 4479443357860031375}
-  - component: {fileID: -4134238079954421653}
+  - component: {fileID: -2924870245425538197}
   m_Layer: 7
-  m_Name: Enemy_Slime
+  m_Name: Enemy_Slime 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!195 &7147769636487876417
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fc2b64a3f91e44388f2a7785e22b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 20
+  detectionRadius: 7.5
   updateDelay: 0.2
   _targetsPlayer: 1
   _playerLayer:
@@ -225,7 +225,7 @@ MonoBehaviour:
     m_Bits: 64
   _targetLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 320
 --- !u!114 &3089472749456291990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,15 +257,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: -4134238079954421653}
-        m_TargetAssemblyTypeName: AddExperience, Assembly-CSharp
-        m_MethodName: AddExp
-        m_Mode: 1
+      - m_Target: {fileID: -2924870245425538197}
+        m_TargetAssemblyTypeName: EnemyReferences, Assembly-CSharp
+        m_MethodName: AddExperience
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 25
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f46c01d826a9744e984cb063d5df96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4134238079954421653
+--- !u!114 &-2924870245425538197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7f01abbda0d7b4094d18d2976c86a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exp: 10
+  exp: 20
 --- !u!1001 &1759687346631108503
 PrefabInstance:
   m_ObjectHideFlags: 0

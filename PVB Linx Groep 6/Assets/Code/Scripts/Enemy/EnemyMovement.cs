@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+
+
 public class EnemyMovement : MonoBehaviour
 {
-    public bool isInRange = false;
-
+    [HideInInspector] public bool isInRange = false;
+    
     [SerializeField] private float moveSpeed = 5f;
     
     [Tooltip("The distance the enemy stops from its target")]
@@ -20,14 +23,18 @@ public class EnemyMovement : MonoBehaviour
     private EnemyReferences _references;
     
     private Vector3 _targetPosition;
+
     private NavMeshAgent _navMeshAgent;
 
-    private float targetDistance;
+    private float _targetDistance;
     
     private bool _isChasingTarget = false;
+    
     private Transform _targetTransform;
 
     private float _timer;
+    
+    
     
     private void Awake()
     {
@@ -48,8 +55,8 @@ public class EnemyMovement : MonoBehaviour
         if (!_navMeshAgent.enabled)
             return;
 
-        targetDistance = Vector3.Distance(_targetPosition, transform.position);
-        if (targetDistance <= stopDistance) 
+        _targetDistance = Vector3.Distance(_targetPosition, transform.position);
+        if (_targetDistance <= stopDistance) 
             FaceTarget();
         else
         {
@@ -61,27 +68,21 @@ public class EnemyMovement : MonoBehaviour
 
     private void CheckLineOfSight()
     {
-        _targetPosition = _targetTransform.position;
-        
         //Hardcoded for a good reason, this is to avoid the error of the layermask not being set correctly in the inspector.
         int layer = 7;
         int layerMask = 1 << layer;
         
         RaycastHit hit;
         Physics.Raycast(transform.position, _targetTransform.position - transform.position, out hit, Mathf.Infinity, ~layerMask);
+        
         Debug.DrawRay(transform.position, _targetTransform.position - transform.position, Color.red);
         
-        if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
+        if (hit.collider != null && hit.collider.CompareTag("Player") || hit.collider.CompareTag("Castle"))
         {
             _references.animator.SetBool("IsMoving", false);
             _isChasingTarget = false;
             StartCoroutine(StopMove(stopDelay));
             isInRange = true;
-        }
-        else if (hit.collider == null)
-        {
-            _isChasingTarget = true;
-            isInRange = false;
         }
         else
         {
@@ -107,11 +108,10 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void SetTarget(Transform target)
+    public void SetTarget(Vector3 target)
     {
-        _targetTransform = target;
-        _targetPosition = _targetTransform.position;
-        _navMeshAgent.SetDestination(_targetPosition);
+        _targetPosition = target;
+        _navMeshAgent.SetDestination(target);
         _isChasingTarget = true;
     }
 }

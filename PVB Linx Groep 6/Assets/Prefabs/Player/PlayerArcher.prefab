@@ -1811,7 +1811,7 @@ GameObject:
   - component: {fileID: 1312928511067169869}
   m_Layer: 6
   m_Name: WeaponHolder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2804,7 +2804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd222ffec542674eb85c561f9ef3053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
+  health: {fileID: -416114941364660115}
 --- !u!1 &7247795223401681028
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,4 +18,4 @@ MonoBehaviour:
     type: 3}
   hitBoxDuration: 0.2
   hitboxOffset: 0
-  hitboxScale: {x: 3, y: 8.86, z: 3}
+  hitboxScale: {x: 4, y: 8.86, z: 4}
