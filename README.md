@@ -24,7 +24,7 @@ Dirk:
   * Old enemies
   * [Placeable Turrets](https://github.com/DaanKikkert/PVB/blob/feature/build-structures/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Build%20Structure/BuildStructure.cs)
   * [Shop](https://github.com/DaanKikkert/PVB/tree/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Shop)
-  * Experience with Guido
+  * [Experience with Guido](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
   * Animations
   * Healthbar
 
@@ -32,7 +32,7 @@ Guido:
   * Universal health with Daan
   * Old ping system
   * Old Emote system
-  * Experience with Dirk
+  * [Experience with Dirk](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
 <details>
   <summary>
     <b>Press to see the concept </b>
