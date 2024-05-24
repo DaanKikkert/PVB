@@ -27,7 +27,8 @@ namespace Weapons
 
         private IEnumerator ToggleHitbox()
         {
-            _hitbox.enabled = true;
+            if(_hitbox != null)
+                _hitbox.enabled = true;
             yield return new WaitForSeconds(hitBoxDuration);
             if(_hitbox != null)
                 _hitbox.enabled = false;
