@@ -25,7 +25,8 @@ Dirk:
   * [Placeable Turrets](https://github.com/DaanKikkert/PVB/blob/feature/build-structures/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Build%20Structure/BuildStructure.cs)
   * [Shop](https://github.com/DaanKikkert/PVB/tree/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Shop)
   * [Experience with Guido](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
-  * Animations
+  * [Player Animations Moving](https://github.com/DaanKikkert/PVB/blob/develop/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/PlayerMovement.cs)
+  * [Player Animations Attack](https://github.com/DaanKikkert/PVB/blob/develop/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Weapons/PlayerAttack.cs)
   * [Healthbar](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UI/Health/ShowHealth.cs)
 
 Guido:
