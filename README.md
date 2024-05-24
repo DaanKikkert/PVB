@@ -30,8 +30,8 @@ Dirk:
 
 Guido:
   * [Universal health with Daan](https://github.com/DaanKikkert/PVB/blob/final-build/PVB%20Linx%20Groep%206/Assets/Code/Scripts/UniversalHealth.cs)
-  * Old ping system
-  * Old Emote system
+  * First build of ping system
+  * First build of Emote system
   * [Experience with Dirk](https://github.com/DaanKikkert/PVB/blob/feature/experience-system/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/Experience.cs)
 <details>
   <summary>
