@@ -5,12 +5,12 @@ Byron:
   * [Mockup multiplayer](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/FakePlayer/FakePlayerMove.cs)
   * [Player movement](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Player/PlayerMovement.cs)
   * [Wave system](https://github.com/DaanKikkert/PVB/tree/develop/PVB%20Linx%20Groep%206/Assets/Code/Scripts/WaveSpawner)
-  * [Class system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Respawning of players](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Game Reset](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Universal fadeout effect](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Reworked Emote system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
-  * [Reworked Ping system](https://github.com/Sherk-cell/Examen-Team-06/tree/feature/Phone-Input/ProefExamenProject/Assets/Input/Script)
+  * [Class system](https://github.com/DaanKikkert/PVB/tree/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Class%20System)
+  * [Respawning of players](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/PlayerRespawnManager/PlayerRespawn.cs)
+  * [Game Reset](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/ResetGame/ResetGame.cs)
+  * [Universal fadeout effect](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/FadeToBlack/FadeEffect.cs)
+  * [Reworked Emote system](https://github.com/DaanKikkert/PVB/tree/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Emote)
+  * [Reworked Ping system](https://github.com/DaanKikkert/PVB/blob/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Ping/PingSystem.cs)
 
 Daan:   
   * [Weapon system](https://github.com/DaanKikkert/PVB/tree/5cbc20f5223e2786f4299e424f36f4eb3656dc7c/PVB%20Linx%20Groep%206/Assets/Code/Scripts/Weapons)
