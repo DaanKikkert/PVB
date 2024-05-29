@@ -2608,6 +2608,7 @@ GameObject:
   - component: {fileID: -736496437399928255}
   - component: {fileID: -416114941364660115}
   - component: {fileID: -1520063313197264433}
+  - component: {fileID: -8875710451826146202}
   m_Layer: 6
   m_Name: PlayerArcher
   m_TagString: Player
@@ -2805,6 +2806,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: -416114941364660115}
+--- !u!114 &-8875710451826146202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7235102103308632429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cd389d08f60244c99896d049ce5009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  classUI: {fileID: 0}
 --- !u!1 &7247795223401681028
 GameObject:
   m_ObjectHideFlags: 0
