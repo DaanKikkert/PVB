@@ -28,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         weapon.SpawnWeapon(spawnPointBow.transform);
+        weapon.spawnPoint = spawnPointBullet;
         playerAttackAnim.SetBool("IsAiming", true);
     }
 
