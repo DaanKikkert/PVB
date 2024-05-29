@@ -1808,7 +1808,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7547421327594988553}
-  - component: {fileID: 1312928511067169869}
   m_Layer: 6
   m_Name: WeaponHolder
   m_TagString: Player
@@ -1828,30 +1827,9 @@ Transform:
   m_LocalPosition: {x: -0.183, y: 0.593, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3912220223932998488}
+  m_Children: []
   m_Father: {fileID: 837100496351090935}
   m_LocalEulerAnglesHint: {x: -0.601, y: 78.644, z: 58.015}
---- !u!114 &1312928511067169869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4139176876130398236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a56fdfc8f275e4d8a847ff12a29503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b, type: 2}
-  playerAttackAnim: {fileID: 4330338333566822202}
-  spawnPointBow: {fileID: 4139176876130398236}
-  spawnPointBullet: {fileID: 5405012483122340530}
-  getVector: {fileID: 6610065375124858524}
-  playerClass: {fileID: 1441009482028970738}
-  attackAnimationName: StandingAimRecoil
-  maxAnimMaskLayer: 0
 --- !u!1 &4390058617516057148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,6 +2231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3912220223932998488}
+  - component: {fileID: 6062743249643869724}
   m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
@@ -2268,13 +2247,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5405012483122340530}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.049142722, y: 0.81614, z: 0.07018308, w: 0.57146734}
-  m_LocalPosition: {x: -0.000002241295, y: 0.0000039409624, z: -0.0000007297799}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.5000002, z: -2.26}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7547421327594988553}
-  m_LocalEulerAnglesHint: {x: -9.83, y: 110, z: 0}
+  m_Father: {fileID: 8688823970389911705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6062743249643869724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5405012483122340530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a56fdfc8f275e4d8a847ff12a29503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 07f63460db6e1464dbe0534c6bda3a5b, type: 2}
+  playerAttackAnim: {fileID: 4330338333566822202}
+  spawnPointBow: {fileID: 4139176876130398236}
+  spawnPointBullet: {fileID: 5405012483122340530}
+  getVector: {fileID: 6610065375124858524}
+  playerClass: {fileID: 1441009482028970738}
+  attackAnimationName: StandingAimRecoil
+  maxAnimMaskLayer: 0
 --- !u!1 &5745941442713980843
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,6 +2304,7 @@ Transform:
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3912220223932998488}
   - {fileID: 8547049531718337427}
   - {fileID: 7593363602237385134}
   - {fileID: 6094677099158617642}

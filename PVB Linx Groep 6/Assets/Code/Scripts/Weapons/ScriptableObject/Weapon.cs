@@ -12,6 +12,8 @@ namespace Weapons
         [Header("Visuals")]
         [SerializeField] protected GameObject weaponModel;
         
+        public GameObject spawnPoint;
+
         protected Vector3 p_attackSpawnPosition;
         protected Quaternion p_attackDirection;
 
