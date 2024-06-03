@@ -11,6 +11,8 @@ namespace Weapons
         
         [Header("Visuals")]
         [SerializeField] protected GameObject weaponModel;
+
+        public GameObject hitboxHolder;
         
         public GameObject spawnPoint;
 

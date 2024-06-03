@@ -37,8 +37,8 @@ namespace Weapons
         public override void SpawnWeapon(Transform parent)
         {
             base.SpawnWeapon(parent);
-            _damageScript = parent.AddComponent<DealDamageOnCollision>();
-            _hitbox = parent.AddComponent<BoxCollider>();
+            _damageScript = hitboxHolder.AddComponent<DealDamageOnCollision>();
+            _hitbox = hitboxHolder.AddComponent<BoxCollider>();
             _damageScript.SetDamage(damage);
             _hitbox.size = hitboxScale;
             _hitbox.center = new Vector3( 0, 0, hitboxOffset);
