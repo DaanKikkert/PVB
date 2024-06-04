@@ -9,14 +9,15 @@ public class Minimap : MonoBehaviour
 
     [SerializeField] private float _maxZoomSize;
     [SerializeField] private float _minZoomSize;
+    [SerializeField][Range(0f,1f)] private float _zoomSizeAdjustAmount;
     
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha9) && _minimapCam.orthographicSize <= _maxZoomSize)
-            _minimapCam.orthographicSize += 0.25f;
+            _minimapCam.orthographicSize += _zoomSizeAdjustAmount;
 
         if (Input.GetKeyDown(KeyCode.Minus) && _minimapCam.orthographicSize >= _minZoomSize)
-            _minimapCam.orthographicSize -= 0.25f;
+            _minimapCam.orthographicSize -= _zoomSizeAdjustAmount;
     }
 }
