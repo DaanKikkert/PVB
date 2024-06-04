@@ -5,19 +5,19 @@ using Weapons;
 
 public class PlayerAttack : MonoBehaviour
 {
-    
+
     [Header("Player Attack Settings: ")]
     public Weapon weapon;
     [SerializeField] private Animator playerAttackAnim;
-    
+
     [Header("SpawnPoint Settings: ")]
     [SerializeField] private GameObject spawnPointBow;
     [SerializeField] private GameObject spawnPointBullet;
-    
+
     [Header("Other Script Settings: ")]
     [SerializeField] private BasicMovement getVector;
     [SerializeField] private ClassManager playerClass;
-    
+
     [Header("Value Changes Settings: ")]
     [SerializeField] private string attackAnimationName;
     [SerializeField] [Range(0,1)] private float maxAnimMaskLayer;
@@ -27,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
+        weapon.hitboxHolder = spawnPointBullet;
         weapon.SpawnWeapon(spawnPointBow.transform);
         weapon.spawnPoint = spawnPointBullet;
         playerAttackAnim.SetBool("IsAiming", true);
@@ -35,7 +36,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         _attackTimer -= Time.deltaTime;
-        
+
         switch (playerClass.playerClass)
         {
             case PlayerClass.Warrior:
@@ -48,7 +49,7 @@ public class PlayerAttack : MonoBehaviour
                 HandleArcherInput();
                 break;
         }
-        
+
         if (playerAttackAnim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimationName) &&
             playerAttackAnim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
         {
