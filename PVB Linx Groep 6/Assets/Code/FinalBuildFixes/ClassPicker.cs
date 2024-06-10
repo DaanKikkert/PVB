@@ -19,7 +19,7 @@ public class ClassPicker : MonoBehaviour
 
         if (WaveManager.instance != null)
             WaveManager.instance.NewWave();
-        Destroy(camera);
-        Destroy(transform.parent.gameObject);
+        camera.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
 }
