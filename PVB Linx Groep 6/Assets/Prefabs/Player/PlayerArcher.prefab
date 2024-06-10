@@ -4257,7 +4257,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 6
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -4330,9 +4330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _minimapCam: {fileID: 4233164331769970464}
-  _maxZoomSize: 9.75
-  _minZoomSize: 5.25
-  _zoomSizeAdjustAmount: 0.25
+  _maxZoomSize: 11.5
+  _minZoomSize: 6.5
+  _zoomSizeAdjustAmount: 0.5
 --- !u!1 &6768012788617994339
 GameObject:
   m_ObjectHideFlags: 0
