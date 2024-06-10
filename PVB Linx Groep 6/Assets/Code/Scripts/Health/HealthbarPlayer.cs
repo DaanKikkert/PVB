@@ -10,8 +10,7 @@ public class HealthbarPlayer : MonoBehaviour
     [SerializeField] private UniversalHealth health;
     [SerializeField] private Slider _healthbar;
     [SerializeField] private Text showHealth;
-
-    private int _fixedHealth;
+    
     private void Awake()
     {
         _healthbar.value = health.GetMaxHealth();
@@ -20,7 +19,6 @@ public class HealthbarPlayer : MonoBehaviour
 
     public void ShowsHealth()
     {
-        _fixedHealth = health.GetMaxHealth();
         _healthbar.value = health.GetCurrentHealth();
         showHealth.text = health.GetCurrentHealth() + "/" + health.GetMaxHealth() + " HP";
     }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerDamageNotifier : MonoBehaviour
 {
     [SerializeField] private Text playerDamageText;
+    [SerializeField] private Image bloodSplatterImg;
     [SerializeField] private float delayBetweenNotifierPlayer;
     
     private bool notifierIsTurnedOnPlayer;
@@ -14,7 +15,6 @@ public class PlayerDamageNotifier : MonoBehaviour
     {
         notifierIsTurnedOnPlayer = false;
     }
-
     
     private IEnumerator DamageNotifierTimer()
     {
@@ -22,8 +22,10 @@ public class PlayerDamageNotifier : MonoBehaviour
         {
             notifierIsTurnedOnPlayer = true;
             playerDamageText.gameObject.SetActive(true);
+            bloodSplatterImg.gameObject.SetActive(true);
             yield return new WaitForSeconds(delayBetweenNotifierPlayer);
             playerDamageText.gameObject.SetActive(false);
+            bloodSplatterImg.gameObject.SetActive(false);
             notifierIsTurnedOnPlayer = false;
         }
     }
