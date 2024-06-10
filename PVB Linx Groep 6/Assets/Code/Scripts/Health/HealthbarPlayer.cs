@@ -22,7 +22,7 @@ public class HealthbarPlayer : MonoBehaviour
     {
         _fixedHealth = health.GetMaxHealth();
         _healthbar.value = health.GetCurrentHealth();
-        showHealth.text = health.GetCurrentHealth() + "/" + 100 + " HP";
+        showHealth.text = health.GetCurrentHealth() + "/" + health.GetMaxHealth() + " HP";
     }
 
     public void ChangeHealthValue()
