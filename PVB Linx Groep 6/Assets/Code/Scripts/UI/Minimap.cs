@@ -14,7 +14,7 @@ public class Minimap : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha9) && _minimapCam.orthographicSize <= _maxZoomSize)
+        if (Input.GetKeyDown(KeyCode.Equals) && _minimapCam.orthographicSize <= _maxZoomSize)
             _minimapCam.orthographicSize += _zoomSizeAdjustAmount;
 
         if (Input.GetKeyDown(KeyCode.Minus) && _minimapCam.orthographicSize >= _minZoomSize)
