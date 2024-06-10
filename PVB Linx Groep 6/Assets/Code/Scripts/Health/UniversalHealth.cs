@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,7 +11,7 @@ namespace Code.Scripts
         public UnityEvent onDeath;
         
         public bool isFullHealth = true;
-        private int _currentHealth;
+        [SerializeField] private int _currentHealth;
         private bool _didDamage = false;
         private Transform _currentTransform;
 
@@ -20,7 +21,6 @@ namespace Code.Scripts
         }
         public void SetMaxHealth(int maxHealth)
         {
-           
             _maxHealth = maxHealth;
         }
         public int GetCurrentHealth()
