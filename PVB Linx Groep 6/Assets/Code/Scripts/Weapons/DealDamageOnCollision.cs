@@ -20,14 +20,12 @@ namespace Code.Scripts.Weapons
                 {
                     if (other.gameObject.CompareTag("Enemy"))
                         other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
-                    Debug.Log("Player hit");
                 }
 
                 if (tag == "Enemy")
                 {
                     if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Castle"))
                         other.gameObject.GetComponent<UniversalHealth>().TakeDamage(_damage);
-                    Debug.Log("Enemy hit");
                 }
             }
         }
