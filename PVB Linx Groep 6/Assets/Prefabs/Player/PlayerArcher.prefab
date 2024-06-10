@@ -4541,7 +4541,6 @@ GameObject:
   - component: {fileID: 8106198388980986798}
   - component: {fileID: 6610065375124858524}
   - component: {fileID: 8371618315376401718}
-  - component: {fileID: -4437997124303876356}
   - component: {fileID: 2996001256941076469}
   - component: {fileID: -7103339477951074398}
   - component: {fileID: 1441009482028970738}
@@ -4614,19 +4613,6 @@ MonoBehaviour:
   health: {fileID: -416114941364660115}
   _healthbar: {fileID: 790706682158224376}
   showHealth: {fileID: 2515377751365859053}
---- !u!114 &-4437997124303876356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7235102103308632429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a276853bb410a4a801a47c7010c00c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: -416114941364660115}
 --- !u!114 &2996001256941076469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4639,8 +4625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce5f7d485e788624f8dc135817cf586d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p_DamageText: {fileID: 544527787010363798}
-  delayBetweenNotifier_P: 0.1
+  playerDamageText: {fileID: 544527787010363798}
+  delayBetweenNotifierPlayer: 0.1
 --- !u!54 &-7103339477951074398
 Rigidbody:
   m_ObjectHideFlags: 0

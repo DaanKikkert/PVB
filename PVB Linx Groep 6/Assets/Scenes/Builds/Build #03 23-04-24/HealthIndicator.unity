@@ -14225,8 +14225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d895a21e8161b574b8abd7c96d0c2e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c_DamageText: {fileID: 2789439808643232050}
-  delayBetweenNotifier_C: 1.25
+  castleDamageText: {fileID: 2789439808643232050}
+  delayBetweenNotifierCastle: 1
 --- !u!1 &1518994232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5871401914095829771, guid: 800e81462ca292f4a81ed07b8232115c,

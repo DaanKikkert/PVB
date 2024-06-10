@@ -5,7 +5,7 @@ using Code.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Healthbar_p : MonoBehaviour
+public class HealthbarPlayer : MonoBehaviour
 {
     [SerializeField] private UniversalHealth health;
     [SerializeField] private Slider _healthbar;
