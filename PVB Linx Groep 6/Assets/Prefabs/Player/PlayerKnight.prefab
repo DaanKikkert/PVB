@@ -3926,7 +3926,7 @@ GameObject:
   - component: {fileID: 6675336368876907643}
   - component: {fileID: 8152582267479865906}
   m_Layer: 3
-  m_Name: Text (Legacy)
+  m_Name: HealthTextPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
